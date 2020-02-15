@@ -1,11 +1,11 @@
 {
   "required": true,
-  "package": "net.fabricmc.example.mixin",
+  "package": "com.andrew121410.fabric.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "OnPlayerJoinEvent"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
