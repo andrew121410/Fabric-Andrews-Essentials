@@ -5,16 +5,12 @@ import com.andrew121410.fabric.Main;
 import com.andrew121410.lackAPI.math.Vector3;
 import com.andrew121410.lackAPI.player.Location;
 import com.andrew121410.lackAPI.player.lackPlayer;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.dimension.DimensionType;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 public class HomeManager {
 
@@ -45,7 +41,9 @@ public class HomeManager {
         isql.Disconnect();
     }
 
-    public void getAllHomesFromISQL(ISQL isql, lackPlayer player) {
+    public void getAllHomesFromISQL(lackPlayer player) {
+        rawHomesMap.putIfAbsent(player.getUUID(), new HashMap<>());
+
         isql.Connect();
 
         ResultSet rs = isql.GetResult("SELECT * FROM Homes WHERE (UUID='" + player.getUUID().toString() + "');");
@@ -62,7 +60,7 @@ public class HomeManager {
                 String PITCH = rs.getString("PITCH");
                 String World = rs.getString("World");
 
-                Location location = new Location(new Vector3(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z)), player.getPlayerEntity().getServer().getWorld(DimensionType.byId(Identifier.tryParse(World))));
+                Location location = new Location(new Vector3(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z)), player.getPlayerEntity().getServer().getWorld(DimensionType.byRawId(Integer.parseInt(World))));
                 rawHomesMap.get(player.getUUID()).put(HomeName, location);
             }
         } catch (SQLException e) {
@@ -131,8 +129,8 @@ public class HomeManager {
             preparedStatement.setString(5, String.valueOf(location.getVector3().getX()));
             preparedStatement.setString(6, String.valueOf(location.getVector3().getY()));
             preparedStatement.setString(7, String.valueOf(location.getVector3().getZ()));
-//            preparedStatement.setString(8, String.valueOf(location.getYaw()));
-//            preparedStatement.setString(9, String.valueOf(location.getPitch()));
+            preparedStatement.setString(8, String.valueOf(0));
+            preparedStatement.setString(9, String.valueOf(0));
             preparedStatement.setString(10, String.valueOf(location.getWorld().getDimension().getType().getRawId()));
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

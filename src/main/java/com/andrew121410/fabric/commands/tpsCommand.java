@@ -1,8 +1,6 @@
 package com.andrew121410.fabric.commands;
 
 import com.andrew121410.fabric.Main;
-import com.andrew121410.fabric.utils.API;
-import com.andrew121410.lackAPI.lackAPI;
 import com.andrew121410.lackAPI.player.lackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
@@ -12,16 +10,16 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-public class versionCommand {
+public class tpsCommand {
 
     private Main main;
 
-    public versionCommand(Main main) {
-        this.main = main;
+    public tpsCommand(Main plugin) {
+        this.main = plugin;
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
-        commandDispatcher.register(CommandManager.literal("version")
+        commandDispatcher.register(CommandManager.literal("tps")
                 .executes(this::go));
     }
 
@@ -29,7 +27,7 @@ public class versionCommand {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         lackPlayer lackPlayer = new lackPlayer(player);
 
-        lackPlayer.sendColorMessage("This server is running Andrew's custom server software V: " + API.VERSION + " with Andrew's lack API V: " + lackAPI.VERSION, Formatting.GOLD);
+        lackPlayer.sendColorMessage("TPS: " + this.main.getTpsTracker().getTps(), Formatting.LIGHT_PURPLE);
         return 1;
     }
 }

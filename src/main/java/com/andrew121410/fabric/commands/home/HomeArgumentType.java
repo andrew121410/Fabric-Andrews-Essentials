@@ -3,11 +3,11 @@ package com.andrew121410.fabric.commands.home;
 import com.andrew121410.fabric.Main;
 import com.andrew121410.lackAPI.player.Location;
 import com.andrew121410.lackAPI.player.lackPlayer;
-import com.mojang.brigadier.StringReader;
-import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.util.Map;
@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-public class HomeArgumentType implements ArgumentType<String> {
+public class HomeArgumentType {
 
     private Map<UUID, Map<String, Location>> homeMap;
 
@@ -27,17 +27,13 @@ public class HomeArgumentType implements ArgumentType<String> {
         this.homeMap = this.main.getSetListMap().getHomesMap();
     }
 
-    @Override
-    public String parse(StringReader reader) {
-        final String text = reader.getRemaining();
-        reader.setCursor(reader.getTotalLength());
-        return text;
-    }
-
-    @Override
-    public <S> CompletableFuture<Suggestions> listSuggestions(CommandContext<S> context, SuggestionsBuilder builder) {
-        ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) context.getSource();
+    public CompletableFuture<Suggestions> suggest(CommandContext<ServerCommandSource> context, SuggestionsBuilder builder) throws CommandSyntaxException {
+        ServerPlayerEntity serverPlayerEntity = context.getSource().getPlayer();
         lackPlayer lackPlayer = new lackPlayer(serverPlayerEntity);
+
+        if (homeMap.get(lackPlayer.getUUID()).isEmpty()) {
+            return builder.buildFuture();
+        }
 
         Set<String> homeSet = homeMap.get(lackPlayer.getUUID()).keySet();
         String[] homeString = homeSet.toArray(new String[0]);

@@ -1,8 +1,12 @@
 package com.andrew121410.fabric;
 
+import com.andrew121410.fabric.commands.home.delhome;
+import com.andrew121410.fabric.commands.home.home;
+import com.andrew121410.fabric.commands.home.sethome;
 import com.andrew121410.fabric.commands.tpa.tpa;
 import com.andrew121410.fabric.commands.tpa.tpaccept;
 import com.andrew121410.fabric.commands.tpa.tpdeny;
+import com.andrew121410.fabric.commands.tpsCommand;
 import com.andrew121410.fabric.commands.versionCommand;
 import com.andrew121410.fabric.utils.PlayerInitializer;
 import com.andrew121410.fabric.utils.SetListMap;
@@ -31,14 +35,15 @@ public class Main implements ModInitializer {
 
     public void regCommands() {
         CommandRegistry.INSTANCE.register(false, new versionCommand(this)::register);
+        CommandRegistry.INSTANCE.register(false, new tpsCommand(this)::register);
 
         CommandRegistry.INSTANCE.register(false, new tpa(this)::register);
         CommandRegistry.INSTANCE.register(false, new tpaccept(this)::register);
         CommandRegistry.INSTANCE.register(false, new tpdeny(this)::register);
 
-//        CommandRegistry.INSTANCE.register(false, new home(this)::register);
-//        CommandRegistry.INSTANCE.register(false, new sethome(this)::register);
-//        CommandRegistry.INSTANCE.register(false, new delhome(this)::register);
+        CommandRegistry.INSTANCE.register(false, new home(this)::register);
+        CommandRegistry.INSTANCE.register(false, new sethome(this)::register);
+        CommandRegistry.INSTANCE.register(false, new delhome(this)::register);
     }
 
     public SetListMap getSetListMap() {

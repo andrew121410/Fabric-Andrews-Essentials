@@ -24,7 +24,7 @@ public class PlayerInitializer {
     }
 
     public void load(lackPlayer lackPlayer) {
-        this.homeManager.getAllHomesFromISQL(this.isqlHomes, lackPlayer);
+        this.homeManager.getAllHomesFromISQL(lackPlayer);
     }
 
     public void unload(lackPlayer lackPlayer) {

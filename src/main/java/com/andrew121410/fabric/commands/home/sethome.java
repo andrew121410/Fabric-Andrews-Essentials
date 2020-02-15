@@ -40,7 +40,8 @@ public class sethome {
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
         commandDispatcher.register(CommandManager.literal("sethome")
                 .then(CommandManager.argument("home", StringArgumentType.string())
-                        .executes(this::go)));
+                        .executes(this::go))
+                .executes(this::no));
     }
 
     public int go(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
@@ -50,6 +51,14 @@ public class sethome {
         String home = StringArgumentType.getString(ctx, "home");
         homeManager.setHome(sqLite, lackPlayer, home);
         lackPlayer.sendColorMessage("Your home has been set.", Formatting.GREEN);
+        return 1;
+    }
+
+    public int no(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        lackPlayer lackPlayer = new lackPlayer(player);
+
+        lackPlayer.sendColorMessage("Please check your command and try again.", Formatting.RED);
         return 1;
     }
 }

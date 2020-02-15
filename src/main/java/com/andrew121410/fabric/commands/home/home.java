@@ -39,8 +39,10 @@ public class home {
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
         commandDispatcher.register(CommandManager.literal("home")
-                .then(CommandManager.argument("home", new HomeArgumentType(main))
-                        .executes(this::go)));
+                .then(CommandManager.argument("home", StringArgumentType.string())
+                        .suggests(new HomeArgumentType(this.main)::suggest)
+                        .executes(this::go))
+                .executes(this::no));
     }
 
     public int go(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
@@ -53,6 +55,14 @@ public class home {
             lackPlayer.teleport(homeLoc);
             lackPlayer.sendColorMessage("Teleporting...", Formatting.GOLD);
         }
+        return 1;
+    }
+
+    public int no(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        lackPlayer lackPlayer = new lackPlayer(player);
+
+        lackPlayer.sendColorMessage("Please check your command and try again.", Formatting.RED);
         return 1;
     }
 }
