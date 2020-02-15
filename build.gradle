@@ -13,6 +13,10 @@ group = project.maven_group
 minecraft {
 }
 
+configurations {
+    fatJar
+}
+
 dependencies {
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -23,9 +27,9 @@ dependencies {
     modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
-
-    implementation 'com.github.andrew121410:CCUtilsJava:15bdd0a19e'
+    fatJar group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+    fatJar 'com.github.andrew121410:CCUtilsJava:15bdd0a19e'
+    configurations.compile.extendsFrom(configurations.fatJar)
 }
 
 processResources {
@@ -81,6 +85,17 @@ publishing {
     }
 }
 
+task fatJar(type: Jar) {
+    baseName = "Andrews-Essentials-FatJar"
+    from {
+        configurations.fatJar.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    with jar
+}
+
 repositories {
+    mavenCentral()
     maven { url 'https://jitpack.io' }
 }
