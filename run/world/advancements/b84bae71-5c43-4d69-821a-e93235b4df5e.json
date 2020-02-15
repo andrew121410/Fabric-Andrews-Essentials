@@ -1,0 +1,54 @@
+{
+  "minecraft:recipes/transportation/acacia_boat": {
+    "criteria": {
+      "in_water": "2020-02-14 18:45:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/oak_boat": {
+    "criteria": {
+      "in_water": "2020-02-14 18:45:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/dark_oak_boat": {
+    "criteria": {
+      "in_water": "2020-02-14 18:45:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/birch_boat": {
+    "criteria": {
+      "in_water": "2020-02-14 18:45:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/jungle_boat": {
+    "criteria": {
+      "in_water": "2020-02-14 18:45:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/transportation/spruce_boat": {
+    "criteria": {
+      "in_water": "2020-02-14 18:45:33 -0500"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:forest": "2020-02-14 18:29:07 -0500",
+      "minecraft:birch_forest": "2020-02-14 18:45:58 -0500",
+      "minecraft:deep_lukewarm_ocean": "2020-02-14 18:46:19 -0500",
+      "minecraft:beach": "2020-02-14 18:45:26 -0500",
+      "minecraft:dark_forest": "2020-02-14 18:45:25 -0500",
+      "minecraft:river": "2020-02-14 18:45:34 -0500",
+      "minecraft:lukewarm_ocean": "2020-02-14 18:45:52 -0500",
+      "minecraft:birch_forest_hills": "2020-02-14 18:45:59 -0500",
+      "minecraft:wooded_hills": "2020-02-14 18:28:19 -0500",
+      "minecraft:swamp": "2020-02-14 18:45:55 -0500"
+    },
+    "done": false
+  },
+  "DataVersion": 2506
+}

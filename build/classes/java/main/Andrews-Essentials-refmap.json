@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "com/andrew121410/fabric/mixin/ExampleMixin": {
+      "init()V": "Lnet/minecraft/class_442;init()V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "com/andrew121410/fabric/mixin/ExampleMixin": {
+        "init()V": "Lnet/minecraft/class_442;init()V"
+      }
+    }
+  }
+}
