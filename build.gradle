@@ -13,10 +13,6 @@ group = project.maven_group
 minecraft {
 }
 
-configurations {
-    fatJar
-}
-
 dependencies {
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -26,10 +22,10 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    fatJar group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
-    fatJar 'com.github.andrew121410:CCUtilsJava:15bdd0a19e'
-    configurations.compile.extendsFrom(configurations.fatJar)
+    include(modCompile(group: 'org.xerial', name: 'sqlite-jdbc', version: '3.7.2'))
+    include(implementation('com.github.andrew121410:CCUtilsJava:15bdd0a19e'))
+    // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
+    // You may need to force-disable transitiveness on them.
 }
 
 processResources {
@@ -81,21 +77,10 @@ publishing {
     // select the repositories you want to publish to
     repositories {
         // uncomment to publish to the local maven
-//		 mavenLocal()
+        // mavenLocal()
     }
-}
-
-task fatJar(type: Jar) {
-    baseName = "Andrews-Essentials-FatJar"
-    from {
-        configurations.fatJar.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-    }
-    with jar
 }
 
 repositories {
-    mavenCentral()
     maven { url 'https://jitpack.io' }
 }
