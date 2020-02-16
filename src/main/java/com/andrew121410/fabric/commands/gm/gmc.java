@@ -1,8 +1,6 @@
-package com.andrew121410.fabric.commands;
+package com.andrew121410.fabric.commands.gm;
 
 import com.andrew121410.fabric.Main;
-import com.andrew121410.fabric.utils.API;
-import com.andrew121410.lackAPI.lackAPI;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
@@ -11,17 +9,19 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
+import net.minecraft.world.GameMode;
 
-public class versionCommand {
+public class gmc {
 
     private Main main;
 
-    public versionCommand(Main main) {
-        this.main = main;
+    public gmc(Main plugin) {
+        this.main = plugin;
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
-        commandDispatcher.register(CommandManager.literal("version")
+        commandDispatcher.register(CommandManager.literal("gmc")
+                .requires(it -> it.hasPermissionLevel(2))
                 .executes(this::go));
     }
 
@@ -29,7 +29,8 @@ public class versionCommand {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        lackPlayer.sendColorMessage("This server is running Andrew's custom server software V: " + API.VERSION + " with Andrew's lack API V: " + lackAPI.VERSION, Formatting.GOLD);
+        lackPlayer.getPlayerEntity().setGameMode(GameMode.CREATIVE);
+        lackPlayer.sendColorMessage("Your gamemode has been changed to CREATIVE", Formatting.GOLD);
         return 1;
     }
 }

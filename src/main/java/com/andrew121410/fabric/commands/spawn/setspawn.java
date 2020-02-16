@@ -1,7 +1,7 @@
 package com.andrew121410.fabric.commands.spawn;
 
 import com.andrew121410.fabric.Main;
-import com.andrew121410.lackAPI.player.lackPlayer;
+import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -25,7 +25,7 @@ public class setspawn {
 
     public int go(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
-        lackPlayer lackPlayer = new lackPlayer(player);
+        LackPlayer lackPlayer = new LackPlayer(player);
 
 
         return 1;

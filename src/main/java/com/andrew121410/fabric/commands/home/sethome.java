@@ -5,7 +5,7 @@ import CCUtils.Storage.SQLite;
 import com.andrew121410.fabric.Main;
 import com.andrew121410.fabric.managers.HomeManager;
 import com.andrew121410.lackAPI.player.Location;
-import com.andrew121410.lackAPI.player.lackPlayer;
+import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -46,7 +46,7 @@ public class sethome {
 
     public int go(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
-        lackPlayer lackPlayer = new lackPlayer(player);
+        LackPlayer lackPlayer = new LackPlayer(player);
 
         String home = StringArgumentType.getString(ctx, "home");
         homeManager.setHome(sqLite, lackPlayer, home);
@@ -56,7 +56,7 @@ public class sethome {
 
     public int no(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
-        lackPlayer lackPlayer = new lackPlayer(player);
+        LackPlayer lackPlayer = new LackPlayer(player);
 
         lackPlayer.sendColorMessage("Please check your command and try again.", Formatting.RED);
         return 1;

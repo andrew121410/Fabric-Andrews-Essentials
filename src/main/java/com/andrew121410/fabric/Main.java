@@ -1,5 +1,9 @@
 package com.andrew121410.fabric;
 
+import com.andrew121410.fabric.commands.gm.gma;
+import com.andrew121410.fabric.commands.gm.gmc;
+import com.andrew121410.fabric.commands.gm.gms;
+import com.andrew121410.fabric.commands.gm.gmsp;
 import com.andrew121410.fabric.commands.home.delhome;
 import com.andrew121410.fabric.commands.home.home;
 import com.andrew121410.fabric.commands.home.sethome;
@@ -44,6 +48,11 @@ public class Main implements ModInitializer {
         CommandRegistry.INSTANCE.register(false, new home(this)::register);
         CommandRegistry.INSTANCE.register(false, new sethome(this)::register);
         CommandRegistry.INSTANCE.register(false, new delhome(this)::register);
+
+        CommandRegistry.INSTANCE.register(false, new gma(this)::register);
+        CommandRegistry.INSTANCE.register(false, new gmc(this)::register);
+        CommandRegistry.INSTANCE.register(false, new gms(this)::register);
+        CommandRegistry.INSTANCE.register(false, new gmsp(this)::register);
     }
 
     public SetListMap getSetListMap() {

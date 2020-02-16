@@ -4,7 +4,7 @@ import CCUtils.Storage.ISQL;
 import CCUtils.Storage.SQLite;
 import com.andrew121410.fabric.Main;
 import com.andrew121410.fabric.managers.HomeManager;
-import com.andrew121410.lackAPI.player.lackPlayer;
+import com.andrew121410.lackAPI.player.LackPlayer;
 
 import java.io.File;
 
@@ -23,11 +23,11 @@ public class PlayerInitializer {
         this.homeManager = new HomeManager(this.main, this.isqlHomes);
     }
 
-    public void load(lackPlayer lackPlayer) {
+    public void load(LackPlayer lackPlayer) {
         this.homeManager.getAllHomesFromISQL(lackPlayer);
     }
 
-    public void unload(lackPlayer lackPlayer) {
+    public void unload(LackPlayer lackPlayer) {
         this.main.getSetListMap().unloadPlayer(lackPlayer);
     }
 }

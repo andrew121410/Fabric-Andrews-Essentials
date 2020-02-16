@@ -1,7 +1,7 @@
 package com.andrew121410.fabric.commands.tpa;
 
 import com.andrew121410.fabric.Main;
-import com.andrew121410.lackAPI.player.lackPlayer;
+import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -11,10 +11,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
 import java.util.Map;
+import java.util.UUID;
 
 public class tpaccept {
 
-    private Map<lackPlayer, lackPlayer> tpaMap;
+    private Map<UUID, LackPlayer> tpaMap;
 
     private Main main;
 
@@ -31,13 +32,13 @@ public class tpaccept {
 
     public int go(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
-        lackPlayer lackPlayer = new lackPlayer(player);
+        LackPlayer lackPlayer = new LackPlayer(player);
 
-        lackPlayer target = tpaMap.get(lackPlayer);
+        LackPlayer target = this.tpaMap.get(lackPlayer.getUUID());
         if (target != null) {
             target.teleport(lackPlayer.getLocation());
-            tpaMap.remove(lackPlayer);
-            target.sendColorMessage(lackPlayer.getPlayerEntity().getDisplayName() + " has accepted your tpa request.", Formatting.GREEN);
+            this.tpaMap.remove(lackPlayer.getUUID());
+            target.sendColorMessage(lackPlayer.getDisplayName() + " has accepted your tpa request.", Formatting.GREEN);
         } else {
             lackPlayer.sendColorMessage("Looks like you don't have any tpa request.", Formatting.RED);
         }

@@ -2,7 +2,7 @@ package com.andrew121410.fabric.commands.home;
 
 import com.andrew121410.fabric.Main;
 import com.andrew121410.lackAPI.player.Location;
-import com.andrew121410.lackAPI.player.lackPlayer;
+import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.Suggestions;
@@ -29,7 +29,7 @@ public class HomeArgumentType {
 
     public CompletableFuture<Suggestions> suggest(CommandContext<ServerCommandSource> context, SuggestionsBuilder builder) throws CommandSyntaxException {
         ServerPlayerEntity serverPlayerEntity = context.getSource().getPlayer();
-        lackPlayer lackPlayer = new lackPlayer(serverPlayerEntity);
+        LackPlayer lackPlayer = new LackPlayer(serverPlayerEntity);
 
         if (homeMap.get(lackPlayer.getUUID()).isEmpty()) {
             return builder.buildFuture();

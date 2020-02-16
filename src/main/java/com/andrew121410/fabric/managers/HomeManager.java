@@ -2,9 +2,8 @@ package com.andrew121410.fabric.managers;
 
 import CCUtils.Storage.ISQL;
 import com.andrew121410.fabric.Main;
-import com.andrew121410.lackAPI.math.Vector3;
 import com.andrew121410.lackAPI.player.Location;
-import com.andrew121410.lackAPI.player.lackPlayer;
+import com.andrew121410.lackAPI.player.LackPlayer;
 import net.minecraft.world.dimension.DimensionType;
 
 import java.sql.PreparedStatement;
@@ -41,7 +40,7 @@ public class HomeManager {
         isql.Disconnect();
     }
 
-    public void getAllHomesFromISQL(lackPlayer player) {
+    public void getAllHomesFromISQL(LackPlayer player) {
         rawHomesMap.putIfAbsent(player.getUUID(), new HashMap<>());
 
         isql.Connect();
@@ -60,7 +59,7 @@ public class HomeManager {
                 String PITCH = rs.getString("PITCH");
                 String World = rs.getString("World");
 
-                Location location = new Location(new Vector3(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z)), player.getPlayerEntity().getServer().getWorld(DimensionType.byRawId(Integer.parseInt(World))));
+                Location location = new Location(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z), Float.parseFloat(YAW), Float.parseFloat(PITCH), player.getPlayerEntity().getServer().getWorld(DimensionType.byRawId(Integer.parseInt(World))));
                 rawHomesMap.get(player.getUUID()).put(HomeName, location);
             }
         } catch (SQLException e) {
@@ -70,7 +69,7 @@ public class HomeManager {
         }
     }
 
-    public Location getHome(lackPlayer player, String HomeName) {
+    public Location getHome(LackPlayer player, String HomeName) {
         return rawHomesMap.get(player.getUUID()).get(HomeName);
     }
 
@@ -78,26 +77,26 @@ public class HomeManager {
         return rawHomesMap.get(uuid).get(HomeName);
     }
 
-    public void deleteHome(ISQL isql, lackPlayer player, String HomeName) {
+    public void deleteHome(ISQL isql, LackPlayer player, String HomeName) {
         rawHomesMap.get(player.getUUID()).remove(HomeName.toLowerCase());
 
         deleteHomeFromISQL(isql, player, HomeName);
     }
 
-    private void deleteHomeFromISQL(ISQL isql, lackPlayer player, String HomeName) {
+    private void deleteHomeFromISQL(ISQL isql, LackPlayer player, String HomeName) {
         isql.Connect();
         isql.ExecuteCommand("DELETE FROM Homes WHERE UUID='" + player.getUUID() + "' AND HomeName='" + HomeName.toLowerCase() + "'");
         isql.Disconnect();
     }
 
-    public void deleteAllHomesFromISQL(ISQL isql, lackPlayer player) {
+    public void deleteAllHomesFromISQL(ISQL isql, LackPlayer player) {
         isql.Connect();
         isql.ExecuteCommand("DELETE FROM Homes WHERE UUID='" + player.getUUID() + "'");
         isql.Disconnect();
         rawHomesMap.remove(player.getUUID());
     }
 
-    public String listHomesInMap(lackPlayer player) {
+    public String listHomesInMap(LackPlayer player) {
         Set<String> homeSet = rawHomesMap.get(player.getUUID()).keySet();
         String[] homeString = homeSet.toArray(new String[0]);
         Arrays.sort(homeString);
@@ -106,7 +105,7 @@ public class HomeManager {
         return homeListPrefix + " " + str;
     }
 
-    public void setHome(ISQL isql, lackPlayer player, String HomeName) {
+    public void setHome(ISQL isql, LackPlayer player, String HomeName) {
         rawHomesMap.get(player.getUUID()).put(HomeName.toLowerCase(), player.getLocation());
 
         setHomeToISQL(isql, player.getUUID(), player.getPlayerEntity().getDisplayName().getString(), HomeName, player.getLocation());
@@ -129,8 +128,8 @@ public class HomeManager {
             preparedStatement.setString(5, String.valueOf(location.getVector3().getX()));
             preparedStatement.setString(6, String.valueOf(location.getVector3().getY()));
             preparedStatement.setString(7, String.valueOf(location.getVector3().getZ()));
-            preparedStatement.setString(8, String.valueOf(0));
-            preparedStatement.setString(9, String.valueOf(0));
+            preparedStatement.setString(8, String.valueOf(location.getYaw()));
+            preparedStatement.setString(9, String.valueOf(location.getPitch()));
             preparedStatement.setString(10, String.valueOf(location.getWorld().getDimension().getType().getRawId()));
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -141,7 +140,7 @@ public class HomeManager {
 
     }
 
-    public void unloadPlayerHomes(lackPlayer player) {
+    public void unloadPlayerHomes(LackPlayer player) {
         rawHomesMap.remove(player.getUUID());
     }
 }

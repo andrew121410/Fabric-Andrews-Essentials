@@ -7,11 +7,11 @@ import net.minecraft.util.Formatting;
 
 import java.util.UUID;
 
-public class lackPlayer {
+public class LackPlayer {
 
     private ServerPlayerEntity playerEntity;
 
-    public lackPlayer(ServerPlayerEntity playerEntity) {
+    public LackPlayer(ServerPlayerEntity playerEntity) {
         this.playerEntity = playerEntity;
     }
 
@@ -30,7 +30,7 @@ public class lackPlayer {
     }
 
     public void teleport(Location location) {
-        playerEntity.teleport((ServerWorld) location.getWorld(), location.getVector3().getX(), location.getVector3().getY(), location.getVector3().getZ(), 0, 0);
+        playerEntity.teleport((ServerWorld) location.getWorld(), location.getVector3().getX(), location.getVector3().getY(), location.getVector3().getZ(), location.getYaw(), location.getPitch());
     }
 
     public Location getLocation() {
@@ -43,5 +43,9 @@ public class lackPlayer {
 
     public ServerPlayerEntity getPlayerEntity() {
         return playerEntity;
+    }
+
+    public String getDisplayName() {
+        return playerEntity.getEntityName();
     }
 }
