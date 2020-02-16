@@ -3,7 +3,8 @@
   "package": "com.andrew121410.fabric.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "OnPlayerJoinEvent"
+    "OnPlayerJoinEvent",
+    "MixinMinecraftServer"
   ],
   "client": [
   ],
