@@ -41,11 +41,16 @@ public class LackPlayer {
         return this.playerEntity.getUuid();
     }
 
-    public ServerPlayerEntity getPlayerEntity() {
-        return playerEntity;
-    }
-
     public String getDisplayName() {
         return playerEntity.getEntityName();
+    }
+
+    public boolean isOp() {
+        return playerEntity.getServer().getPlayerManager().isOperator(playerEntity.getGameProfile());
+    }
+
+    //VERY RAW,
+    public ServerPlayerEntity getPlayerEntity() {
+        return playerEntity;
     }
 }

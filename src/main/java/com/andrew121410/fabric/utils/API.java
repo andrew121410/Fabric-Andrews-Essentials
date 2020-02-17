@@ -5,10 +5,11 @@ import com.andrew121410.lackAPI.player.Location;
 
 public class API {
 
-    public static String VERSION = "1.1";
+    public static int HOME_LIMIT = 1;
+    public static String VERSION = "1.3";
 
     public Location getLocationFromFile(CustomYmlManager configinstance, String path) {
-        
+
 
         return (Location) configinstance.getConfig().get(path);
     }

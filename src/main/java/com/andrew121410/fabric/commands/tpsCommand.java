@@ -27,7 +27,7 @@ public class tpsCommand {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        lackPlayer.sendColorMessage("TPS: " + this.main.getTpsTracker().getTps(), Formatting.LIGHT_PURPLE);
+        lackPlayer.sendColorMessage("The TPS command has not been implemented.", Formatting.LIGHT_PURPLE);
         return 1;
     }
 }

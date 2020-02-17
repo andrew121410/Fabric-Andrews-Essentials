@@ -4,8 +4,9 @@ import CCUtils.Storage.ISQL;
 import CCUtils.Storage.SQLite;
 import com.andrew121410.fabric.Main;
 import com.andrew121410.fabric.managers.HomeManager;
-import com.andrew121410.lackAPI.player.Location;
+import com.andrew121410.fabric.utils.API;
 import com.andrew121410.lackAPI.player.LackPlayer;
+import com.andrew121410.lackAPI.player.Location;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -47,6 +48,13 @@ public class sethome {
     public int go(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
+
+        Map<String, Location> homes = this.homesMap.get(lackPlayer.getUUID());
+        if (homes.size() == API.HOME_LIMIT && !lackPlayer.isOp()) {
+            lackPlayer.sendColorMessage("You can only have " + API.HOME_LIMIT + " homes.", Formatting.YELLOW);
+            lackPlayer.sendColorMessage("If you want to override the home please delete it and try again.", Formatting.RED);
+            return 1;
+        }
 
         String home = StringArgumentType.getString(ctx, "home");
         homeManager.setHome(sqLite, lackPlayer, home);
