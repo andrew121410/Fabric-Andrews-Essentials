@@ -7,14 +7,20 @@ import com.andrew121410.fabric.commands.gm.gmsp;
 import com.andrew121410.fabric.commands.home.delhome;
 import com.andrew121410.fabric.commands.home.home;
 import com.andrew121410.fabric.commands.home.sethome;
+import com.andrew121410.fabric.commands.spawn;
 import com.andrew121410.fabric.commands.tpa.tpa;
 import com.andrew121410.fabric.commands.tpa.tpaccept;
 import com.andrew121410.fabric.commands.tpa.tpdeny;
+import com.andrew121410.fabric.commands.tpsCommand;
 import com.andrew121410.fabric.commands.versionCommand;
 import com.andrew121410.fabric.utils.PlayerInitializer;
 import com.andrew121410.fabric.utils.SetListMap;
+import com.andrew121410.fabric.utils.TpsHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CommandRegistry;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main implements ModInitializer {
 
@@ -22,6 +28,8 @@ public class Main implements ModInitializer {
 
     private SetListMap setListMap;
     private PlayerInitializer playerInitializer;
+    private TpsHelper tpsHelper;
+    private Timer timer;
 
     @Override
     public void onInitialize() {
@@ -31,11 +39,20 @@ public class Main implements ModInitializer {
         this.playerInitializer = new PlayerInitializer(this);
 
         regCommands();
+
+        this.timer = new Timer();
+        tpsHelper = new TpsHelper();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                tpsHelper.run();
+            }
+        }, 1000, 50);
     }
 
     public void regCommands() {
         CommandRegistry.INSTANCE.register(false, new versionCommand(this)::register);
-//        CommandRegistry.INSTANCE.register(false, new tpsCommand(this)::register);
+        CommandRegistry.INSTANCE.register(false, new tpsCommand(this)::register);
 
         CommandRegistry.INSTANCE.register(false, new tpa(this)::register);
         CommandRegistry.INSTANCE.register(false, new tpaccept(this)::register);
@@ -49,6 +66,8 @@ public class Main implements ModInitializer {
         CommandRegistry.INSTANCE.register(false, new gmc(this)::register);
         CommandRegistry.INSTANCE.register(false, new gms(this)::register);
         CommandRegistry.INSTANCE.register(false, new gmsp(this)::register);
+
+        CommandRegistry.INSTANCE.register(false, new spawn(this)::register);
     }
 
     public SetListMap getSetListMap() {
@@ -57,6 +76,10 @@ public class Main implements ModInitializer {
 
     public PlayerInitializer getPlayerInitializer() {
         return playerInitializer;
+    }
+
+    public TpsHelper getTpsHelper() {
+        return tpsHelper;
     }
 
     public static Main getMain() {

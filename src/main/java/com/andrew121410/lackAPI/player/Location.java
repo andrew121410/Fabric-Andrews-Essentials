@@ -2,6 +2,8 @@ package com.andrew121410.lackAPI.player;
 
 import com.andrew121410.lackAPI.math.Vector3;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Location {
@@ -20,6 +22,10 @@ public class Location {
 
     public static Location from(PlayerEntity playerEntity) {
         return new Location(playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), playerEntity.yaw, playerEntity.pitch, playerEntity.getEntityWorld());
+    }
+
+    public static Location from(BlockPos blockPos, ServerWorld serverWorld) {
+        return new Location(blockPos.getX(), blockPos.getY(), blockPos.getZ(), 0, 0, serverWorld);
     }
 
     public Vector3 getVector3() {

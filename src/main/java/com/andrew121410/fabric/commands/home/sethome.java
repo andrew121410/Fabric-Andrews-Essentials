@@ -18,6 +18,7 @@ import net.minecraft.util.Formatting;
 
 import java.io.File;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 public class sethome {
@@ -49,9 +50,31 @@ public class sethome {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
+        Set<String> strings = player.getScoreboardTags();
+        String homeA = null;
+        for (String string : strings) {
+            String[] a = string.split(".");
+            if (a[0].equalsIgnoreCase("home")) homeA = a[1];
+        }
+        Integer integer = null;
+        if (homeA != null) {
+            try {
+                integer = Integer.parseInt(homeA);
+            } catch (Exception e) {
+                lackPlayer.sendColorMessage("SOMETHING WENT VERY BAD WITH YOUR COMMAND.", Formatting.RED);
+                return 1;
+            }
+        }
+
+        lackPlayer.sendRawMessage("HomeAL " + homeA + "   Int: " + integer);
+
         Map<String, Location> homes = this.homesMap.get(lackPlayer.getUUID());
-        if (homes.size() == API.HOME_LIMIT && !lackPlayer.isOp()) {
+        if (homes.size() == API.HOME_LIMIT && !lackPlayer.isOp() && integer == null) {
             lackPlayer.sendColorMessage("You can only have " + API.HOME_LIMIT + " homes.", Formatting.YELLOW);
+            lackPlayer.sendColorMessage("If you want to override the home please delete it and try again.", Formatting.RED);
+            return 1;
+        } else if (homeA != null && homes.size() == integer && !lackPlayer.isOp()) {
+            lackPlayer.sendColorMessage("You have expanded homes but you have reached the limit of: " + integer, Formatting.YELLOW);
             lackPlayer.sendColorMessage("If you want to override the home please delete it and try again.", Formatting.RED);
             return 1;
         }

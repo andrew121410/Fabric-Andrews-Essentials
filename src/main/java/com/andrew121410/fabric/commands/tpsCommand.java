@@ -27,7 +27,18 @@ public class tpsCommand {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        lackPlayer.sendColorMessage("The TPS command has not been implemented.", Formatting.LIGHT_PURPLE);
+        double tps = main.getTpsHelper().getAverageTPS();
+        Formatting color;
+        if (tps >= 18.0) {
+            color = Formatting.GREEN;
+        } else if (tps >= 15.0) {
+            color = Formatting.YELLOW;
+        } else color = Formatting.RED;
+
+        lackPlayer.sendColorMessage("TPS: " + tps, color);
+        lackPlayer.sendColorMessage("Maximum memory: " + (Runtime.getRuntime().maxMemory() / 1024 / 1024) + " MB.", Formatting.GOLD);
+        lackPlayer.sendColorMessage("Allocated memory: " + (Runtime.getRuntime().totalMemory() / 1024 / 1024) + " MB.", Formatting.GOLD);
+        lackPlayer.sendColorMessage("Free memory: " + (Runtime.getRuntime().freeMemory() / 1024 / 1024) + " MB.", Formatting.GOLD);
         return 1;
     }
 }
