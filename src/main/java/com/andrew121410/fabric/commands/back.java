@@ -28,9 +28,7 @@ public class back {
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
         commandDispatcher.register(CommandManager.literal("back")
-                .requires(it -> it.hasPermissionLevel(2))
-                .then(CommandManager.argument("player", EntityArgumentType.player())
-                        .executes(this::goPlayerOP)));
+                .executes(this::go));
     }
 
     public int go(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
