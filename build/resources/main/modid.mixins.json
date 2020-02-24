@@ -5,7 +5,10 @@
   "mixins": [
     "MixinMinecraftServer",
     "OnPlayerJoinEvent",
-    "OnPlayerLeaveEvent"
+    "OnPlayerLeaveEvent",
+    "OnPlayerDeathEvent",
+    "OnPlayerTeleportEvent",
+    "OnPlayerTeleportEventv2"
   ],
   "client": [
   ],

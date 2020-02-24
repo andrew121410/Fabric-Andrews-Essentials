@@ -1,5 +1,6 @@
 package com.andrew121410.fabric;
 
+import com.andrew121410.fabric.commands.back;
 import com.andrew121410.fabric.commands.gm.gma;
 import com.andrew121410.fabric.commands.gm.gmc;
 import com.andrew121410.fabric.commands.gm.gms;
@@ -11,8 +12,8 @@ import com.andrew121410.fabric.commands.spawn;
 import com.andrew121410.fabric.commands.tpa.tpa;
 import com.andrew121410.fabric.commands.tpa.tpaccept;
 import com.andrew121410.fabric.commands.tpa.tpdeny;
-import com.andrew121410.fabric.commands.tpsCommand;
-import com.andrew121410.fabric.commands.versionCommand;
+import com.andrew121410.fabric.commands.tps;
+import com.andrew121410.fabric.commands.version;
 import com.andrew121410.fabric.utils.PlayerInitializer;
 import com.andrew121410.fabric.utils.SetListMap;
 import com.andrew121410.fabric.utils.TpsHelper;
@@ -50,9 +51,14 @@ public class Main implements ModInitializer {
         }, 1000, 50);
     }
 
+    public void onShutdown() {
+        this.timer.cancel();
+        System.out.println("[SHUTDOWN] Fabric-Andrews-Essentials.");
+    }
+
     public void regCommands() {
-        CommandRegistry.INSTANCE.register(false, new versionCommand(this)::register);
-        CommandRegistry.INSTANCE.register(false, new tpsCommand(this)::register);
+        CommandRegistry.INSTANCE.register(false, new version(this)::register);
+        CommandRegistry.INSTANCE.register(false, new tps(this)::register);
 
         CommandRegistry.INSTANCE.register(false, new tpa(this)::register);
         CommandRegistry.INSTANCE.register(false, new tpaccept(this)::register);
@@ -68,6 +74,7 @@ public class Main implements ModInitializer {
         CommandRegistry.INSTANCE.register(false, new gmsp(this)::register);
 
         CommandRegistry.INSTANCE.register(false, new spawn(this)::register);
+        CommandRegistry.INSTANCE.register(false, new back(this)::register);
     }
 
     public SetListMap getSetListMap() {
@@ -84,5 +91,9 @@ public class Main implements ModInitializer {
 
     public static Main getMain() {
         return main;
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 }

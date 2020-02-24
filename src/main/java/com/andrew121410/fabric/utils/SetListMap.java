@@ -1,7 +1,7 @@
 package com.andrew121410.fabric.utils;
 
-import com.andrew121410.lackAPI.player.Location;
 import com.andrew121410.lackAPI.player.LackPlayer;
+import com.andrew121410.lackAPI.player.Location;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,15 +14,18 @@ public class SetListMap {
 
     private Map<UUID, LackPlayer> tpaMap; //0
     private Map<UUID, Map<String, Location>> homesMap; //0
+    private Map<UUID, Location> backMap; //0
 
     public SetListMap() {
         this.tpaMap = new HashMap<>();
         this.homesMap = new HashMap<>();
+        this.backMap = new HashMap<>();
     }
 
     public void unloadPlayer(LackPlayer lackPlayer) {
-        tpaMap.remove(lackPlayer);
+        tpaMap.remove(lackPlayer.getUUID());
         homesMap.remove(lackPlayer.getPlayerEntity().getUuid());
+        backMap.remove(lackPlayer.getPlayerEntity().getUuid());
     }
 
     //GETTERS
@@ -33,5 +36,9 @@ public class SetListMap {
 
     public Map<UUID, Map<String, Location>> getHomesMap() {
         return homesMap;
+    }
+
+    public Map<UUID, Location> getBackMap() {
+        return backMap;
     }
 }

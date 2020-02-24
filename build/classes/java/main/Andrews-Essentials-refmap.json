@@ -1,7 +1,19 @@
 {
   "mappings": {
+    "com/andrew121410/fabric/mixin/MixinMinecraftServer": {
+      "shutdown": "Lnet/minecraft/server/MinecraftServer;method_3782()V"
+    },
+    "com/andrew121410/fabric/mixin/OnPlayerTeleportEvent": {
+      "teleport": "Lnet/minecraft/class_3222;method_14251(Lnet/minecraft/class_3218;DDDFF)V"
+    },
     "com/andrew121410/fabric/mixin/OnPlayerJoinEvent": {
       "onPlayerConnect": "Lnet/minecraft/class_3324;method_14570(Lnet/minecraft/class_2535;Lnet/minecraft/class_3222;)V"
+    },
+    "com/andrew121410/fabric/mixin/OnPlayerDeathEvent": {
+      "onDeath": "Lnet/minecraft/class_3222;method_6078(Lnet/minecraft/class_1282;)V"
+    },
+    "com/andrew121410/fabric/mixin/OnPlayerTeleportEventv2": {
+      "teleport": "Lnet/minecraft/class_3143;method_13766(Lnet/minecraft/class_2168;Lnet/minecraft/class_1297;Lnet/minecraft/class_3218;DDDLjava/util/Set;FFLnet/minecraft/class_3143$class_3144;)V"
     },
     "com/andrew121410/fabric/mixin/OnPlayerLeaveEvent": {
       "remove": "Lnet/minecraft/class_3324;method_14611(Lnet/minecraft/class_3222;)V"
@@ -9,8 +21,20 @@
   },
   "data": {
     "named:intermediary": {
+      "com/andrew121410/fabric/mixin/MixinMinecraftServer": {
+        "shutdown": "Lnet/minecraft/server/MinecraftServer;method_3782()V"
+      },
+      "com/andrew121410/fabric/mixin/OnPlayerTeleportEvent": {
+        "teleport": "Lnet/minecraft/class_3222;method_14251(Lnet/minecraft/class_3218;DDDFF)V"
+      },
       "com/andrew121410/fabric/mixin/OnPlayerJoinEvent": {
         "onPlayerConnect": "Lnet/minecraft/class_3324;method_14570(Lnet/minecraft/class_2535;Lnet/minecraft/class_3222;)V"
+      },
+      "com/andrew121410/fabric/mixin/OnPlayerDeathEvent": {
+        "onDeath": "Lnet/minecraft/class_3222;method_6078(Lnet/minecraft/class_1282;)V"
+      },
+      "com/andrew121410/fabric/mixin/OnPlayerTeleportEventv2": {
+        "teleport": "Lnet/minecraft/class_3143;method_13766(Lnet/minecraft/class_2168;Lnet/minecraft/class_1297;Lnet/minecraft/class_3218;DDDLjava/util/Set;FFLnet/minecraft/class_3143$class_3144;)V"
       },
       "com/andrew121410/fabric/mixin/OnPlayerLeaveEvent": {
         "remove": "Lnet/minecraft/class_3324;method_14611(Lnet/minecraft/class_3222;)V"

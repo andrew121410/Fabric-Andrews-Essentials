@@ -12,11 +12,11 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-public class versionCommand {
+public class version {
 
     private Main main;
 
-    public versionCommand(Main main) {
+    public version(Main main) {
         this.main = main;
     }
 

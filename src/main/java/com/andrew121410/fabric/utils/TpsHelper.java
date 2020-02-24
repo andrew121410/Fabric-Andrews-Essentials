@@ -5,26 +5,20 @@ import java.util.LinkedList;
 public class TpsHelper {
 
     private transient long lastPoll = System.nanoTime();
-    private LinkedList<Double> history = new LinkedList<>();
-    private long tickInterval = 50;
+    private final LinkedList<Double> history = new LinkedList<>();
+    private final long tickInterval = 50;
 
     public TpsHelper() {
-        this.history.add(20d);
+        history.add(20d);
     }
 
     public void run() {
         final long startTime = System.nanoTime();
         long timeSpent = (startTime - lastPoll) / 1000;
-        if (timeSpent == 0) {
-            timeSpent = 1;
-        }
-        if (history.size() > 10) {
-            history.remove();
-        }
+        if (timeSpent == 0) timeSpent = 1;
+        if (history.size() > 10) history.remove();
         double tps = tickInterval * 1000000.0 / timeSpent;
-        if (tps <= 21) {
-            history.add(tps);
-        }
+        if (tps <= 21) history.add(tps);
         lastPoll = startTime;
     }
 
