@@ -14,7 +14,6 @@ public class MixinMinecraftServer {
     /**
      * @author andrew121410
      */
-
     @Overwrite
     public String getServerModName() {
         return "Andrew's custom software";
@@ -25,3 +24,4 @@ public class MixinMinecraftServer {
         Main.getMain().onShutdown();
     }
 }
+

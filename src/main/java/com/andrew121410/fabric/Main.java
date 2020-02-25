@@ -21,7 +21,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CommandRegistry;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 public class Main implements ModInitializer {
 
@@ -43,12 +42,7 @@ public class Main implements ModInitializer {
 
         this.timer = new Timer();
         tpsHelper = new TpsHelper();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                tpsHelper.run();
-            }
-        }, 1000, 50);
+        timer.scheduleAtFixedRate(this.tpsHelper, 1000, 50);
     }
 
     public void onShutdown() {

@@ -1,8 +1,9 @@
 package com.andrew121410.fabric.utils;
 
 import java.util.LinkedList;
+import java.util.TimerTask;
 
-public class TpsHelper {
+public class TpsHelper extends TimerTask {
 
     private transient long lastPoll = System.nanoTime();
     private final LinkedList<Double> history = new LinkedList<>();
