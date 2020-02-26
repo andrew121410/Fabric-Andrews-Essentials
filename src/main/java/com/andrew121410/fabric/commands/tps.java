@@ -10,18 +10,12 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
 public class tps {
 
     private Main main;
 
-    private static DecimalFormat twoDPlaces = new DecimalFormat("#,###.##");
-
     public tps(Main plugin) {
         this.main = plugin;
-        twoDPlaces.setRoundingMode(RoundingMode.HALF_UP);
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
@@ -41,7 +35,7 @@ public class tps {
             color = Formatting.YELLOW;
         } else color = Formatting.RED;
 
-        lackPlayer.sendColorMessage("TPS: " + twoDPlaces.format(tps), color);
+        lackPlayer.sendColorMessage("TPS: " + main.getTpsHelper().getFancyTPS(), color);
         lackPlayer.sendColorMessage("Maximum memory: " + (Runtime.getRuntime().maxMemory() / 1024 / 1024) + " MB.", Formatting.GOLD);
         lackPlayer.sendColorMessage("Allocated memory: " + (Runtime.getRuntime().totalMemory() / 1024 / 1024) + " MB.", Formatting.GOLD);
         lackPlayer.sendColorMessage("Free memory: " + (Runtime.getRuntime().freeMemory() / 1024 / 1024) + " MB.", Formatting.GOLD);

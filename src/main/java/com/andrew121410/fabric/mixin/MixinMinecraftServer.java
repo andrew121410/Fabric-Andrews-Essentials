@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftServer.class)
-public class MixinMinecraftServer {
+public abstract class MixinMinecraftServer {
 
     /**
      * @author andrew121410
@@ -24,4 +24,3 @@ public class MixinMinecraftServer {
         Main.getMain().onShutdown();
     }
 }
-

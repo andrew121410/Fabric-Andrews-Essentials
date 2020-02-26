@@ -18,35 +18,36 @@ import com.andrew121410.fabric.utils.PlayerInitializer;
 import com.andrew121410.fabric.utils.SetListMap;
 import com.andrew121410.fabric.utils.TpsHelper;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.server.ServerTickCallback;
 import net.fabricmc.fabric.api.registry.CommandRegistry;
-
-import java.util.Timer;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.server.dedicated.MinecraftDedicatedServer;
 
 public class Main implements ModInitializer {
+
+    private MinecraftDedicatedServer minecraftDedicatedServer;
 
     private static Main main;
 
     private SetListMap setListMap;
     private PlayerInitializer playerInitializer;
     private TpsHelper tpsHelper;
-    private Timer timer;
 
     @Override
     public void onInitialize() {
         main = this;
+        this.minecraftDedicatedServer = (MinecraftDedicatedServer) FabricLoader.getInstance().getGameInstance();
         System.out.println("Loading Andrews Essentials");
         this.setListMap = new SetListMap();
         this.playerInitializer = new PlayerInitializer(this);
 
         regCommands();
 
-        this.timer = new Timer();
-        tpsHelper = new TpsHelper();
-        timer.scheduleAtFixedRate(this.tpsHelper, 1000, 50);
+        this.tpsHelper = new TpsHelper();
+        ServerTickCallback.EVENT.register(this.tpsHelper::tick);
     }
 
     public void onShutdown() {
-        this.timer.cancel();
         System.out.println("[SHUTDOWN] Fabric-Andrews-Essentials.");
     }
 
@@ -79,15 +80,15 @@ public class Main implements ModInitializer {
         return playerInitializer;
     }
 
-    public TpsHelper getTpsHelper() {
-        return tpsHelper;
-    }
-
     public static Main getMain() {
         return main;
     }
 
-    public Timer getTimer() {
-        return timer;
+    public TpsHelper getTpsHelper() {
+        return tpsHelper;
+    }
+
+    public MinecraftDedicatedServer getMinecraftDedicatedServer() {
+        return minecraftDedicatedServer;
     }
 }
