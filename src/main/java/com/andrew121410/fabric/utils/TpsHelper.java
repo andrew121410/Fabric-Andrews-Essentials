@@ -16,16 +16,21 @@ public class TpsHelper {
         decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
     }
 
+    int counter = 1;
+
     public void tick(net.minecraft.server.MinecraftServer server) {
-        run();
+        if (counter == 49) {
+            run();
+            counter = 0;
+        } else counter++;
     }
 
-    public void run() {
+    private void run() {
         final long startTime = System.nanoTime();
         long timeSpent = (startTime - lastPoll) / 1000;
         if (timeSpent == 0) timeSpent = 1;
         if (history.size() > 10) history.remove();
-        double tps = 1000000.0 / timeSpent;
+        double tps = 50 * 1000000.0 / timeSpent;
         if (tps <= 21) history.add(tps);
         lastPoll = startTime;
     }

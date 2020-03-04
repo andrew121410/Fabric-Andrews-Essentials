@@ -1,0 +1,2 @@
+v1	named	intermediary
+METHOD	com/andrew121410/fabric/mixin/MixinMinecraftServer	()Ljava/lang/String;	getServerModName	getServerModName
