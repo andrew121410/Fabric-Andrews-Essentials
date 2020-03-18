@@ -16,7 +16,7 @@ public abstract class MixinMinecraftServer {
      */
     @Overwrite
     public String getServerModName() {
-        return "Andrew's custom software";
+        return "Bexar system software";
     }
 
     @Inject(method = "shutdown", at = @At(value = "HEAD"))

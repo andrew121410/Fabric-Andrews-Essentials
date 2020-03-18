@@ -1,7 +1,5 @@
 package com.andrew121410.fabric.mixin;
 
-import com.andrew121410.fabric.Main;
-import com.andrew121410.lackAPI.player.LackPlayer;
 import net.minecraft.SharedConstants;
 import net.minecraft.network.packet.c2s.play.ChatMessageC2SPacket;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
@@ -28,7 +26,7 @@ public class MixinServerPlayNetworkHandler {
             return;
         }
         if (!string.startsWith("/")) {
-            Main.getMain().getDiscordAddon().sendPlayerMessage(new LackPlayer(this.player), string);
+//            Main.getMain().getDiscordAddon().sendPlayerMessage(new LackPlayer(this.player), string);
         }
     }
 }
