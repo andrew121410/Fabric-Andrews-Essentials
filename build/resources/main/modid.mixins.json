@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinMinecraftServer",
-    "OnPlayerJoinEvent",
-    "OnPlayerLeaveEvent",
+    "MixinPlayerManger",
+    "MixinServerPlayNetworkHandler",
     "OnPlayerDeathEvent",
     "OnPlayerTeleportEvent",
     "OnPlayerTeleportEventv2",

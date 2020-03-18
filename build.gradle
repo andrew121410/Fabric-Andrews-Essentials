@@ -24,6 +24,7 @@ dependencies {
 
     include(modCompile(group: 'org.xerial', name: 'sqlite-jdbc', version: '3.7.2'))
     include(implementation('com.github.andrew121410:CCUtilsJava:15bdd0a19e'))
+    include(modCompile(group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'))
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
 }

@@ -30,6 +30,7 @@
     </orderEntry>
     <orderEntry type="library" name="Gradle: com.github.andrew121410:CCUtilsJava:15bdd0a19e" level="project" />
     <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.28.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.mojang:patchy:1.1" level="project" />
     <orderEntry type="library" name="Gradle: oshi-project:oshi-core:1.1" level="project" />
     <orderEntry type="library" name="Gradle: net.java.dev.jna:jna:4.4.0" level="project" />
@@ -108,11 +109,10 @@
     <orderEntry type="library" name="Gradle: net.fabricmc:fabric-loader:0.7.8+build.187@net.fabricmc.yarn.20w11a.20w11a+build.1-v2" level="project" />
     <orderEntry type="library" name="Gradle: com.github.l89669:bukkitYaml:0.1-pre" level="project" />
     <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.23" level="project" />
-    <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:8.0.15" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: net.fabricmc:dev-launch-injector:0.2.0+build.6" level="project" />
-    <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.6.1" level="project" />
+    <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:8.0.15" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.10" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.1" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="Fabric-Andrews-Essentials.main" />
