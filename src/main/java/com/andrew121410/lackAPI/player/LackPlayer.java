@@ -1,5 +1,6 @@
 package com.andrew121410.lackAPI.player;
 
+import com.andrew121410.lackAPI.utils.TextFormat;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.LiteralText;
@@ -29,6 +30,10 @@ public class LackPlayer {
         }
     }
 
+    public void sendColorMessage(String msg) {
+        this.playerEntity.sendMessage(TextFormat.stringToFormattedText(msg));
+    }
+
     public void teleport(Location location) {
         playerEntity.teleport((ServerWorld) location.getWorld(), location.getVector3().getX(), location.getVector3().getY(), location.getVector3().getZ(), location.getYaw(), location.getPitch());
     }
@@ -47,6 +52,10 @@ public class LackPlayer {
 
     public boolean isOp() {
         return playerEntity.getServer().getPlayerManager().isOperator(playerEntity.getGameProfile());
+    }
+
+    public LackPackets getLackPackets() {
+        return new LackPackets(this);
     }
 
     //VERY RAW,

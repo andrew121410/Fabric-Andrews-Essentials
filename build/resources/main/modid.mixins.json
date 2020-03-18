@@ -9,7 +9,8 @@
     "OnPlayerLeaveEvent",
     "OnPlayerDeathEvent",
     "OnPlayerTeleportEvent",
-    "OnPlayerTeleportEventv2"
+    "OnPlayerTeleportEventv2",
+    "MixinItemEntity"
   ],
   "client": [
   ],

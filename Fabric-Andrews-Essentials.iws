@@ -2,33 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="153868eb-71bf-4b63-89da-0f7e517f71a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/banned-ips.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/banned-players.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/crash-reports/crash-2020-02-26_19.21.34-client.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/crash-reports/crash-2020-02-26_19.24.28-client.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2020-02-26-1.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2020-02-26-2.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2020-02-26-3.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2020-02-26-4.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/ops.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/server.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/whitelist.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/data/fabricRegistry.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/poi/r.-1.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/poi/r.-1.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/poi/r.0.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/poi/r.0.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/region/r.-1.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/region/r.-1.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/region/r.-1.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/region/r.0.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/region/r.0.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/region/r.0.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/world/session.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/commands/hide/hide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/commands/hide/unhide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/mixin/MixinItemEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/mixin/MixinPlayerManger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/mixin/MixinServerPlayNetworkHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/utils/DiscordAddon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/player/LackPackets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/utils/TextFormat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/fileContent/annotation-processors.bin" afterDir="false" />
@@ -46,22 +27,26 @@
       <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Andrews-Essentials-refmap.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Andrews-Essentials-refmap.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/back.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/back.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/HomeArgumentType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/HomeArgumentType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/delhome.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/delhome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/home.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/home.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/sethome.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/home/sethome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/tpa/tpaccept.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/tpa/tpaccept.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/tpa/tpdeny.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/tpa/tpdeny.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/tps.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/commands/tps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/managers/HomeManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/managers/HomeManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/utils/TpsHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/utils/TpsHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/fabric.mod.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/utils/API.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/fabric/utils/API.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/lackAPI/lackAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/lackAPI/lackAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/lackAPI/player/lackPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/lackAPI/player/lackPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-dev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-dev.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources-dev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources-dev.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/loom-cache/mixin-map-20w10a-20w10a+build.1-v2.tiny" beforeDir="false" afterPath="$PROJECT_DIR$/build/loom-cache/mixin-map-20w10a-20w10a+build.1-v2.tiny" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/modid.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/modid.mixins.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/mixin/OnPlayerJoinEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/mixin/OnPlayerLeaveEvent.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/utils/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/utils/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/utils/TpsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/utils/TpsHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/utils/PlayerInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/fabric/utils/PlayerInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/lackAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/lackAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/player/LackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/player/LackPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/modid.mixins.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/modid.mixins.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,6 +308,17 @@
       <workItem from="1582848213374" duration="630000" />
       <workItem from="1583015421924" duration="3000" />
       <workItem from="1583356658206" duration="274000" />
+      <workItem from="1583359023633" duration="77000" />
+      <workItem from="1583543283866" duration="4572000" />
+      <workItem from="1583555832180" duration="2519000" />
+      <workItem from="1583558576975" duration="64000" />
+      <workItem from="1583955316735" duration="436000" />
+      <workItem from="1583957785870" duration="147000" />
+      <workItem from="1583957939004" duration="5000" />
+      <workItem from="1584230618637" duration="257000" />
+      <workItem from="1584248200364" duration="29000" />
+      <workItem from="1584413284625" duration="684000" />
+      <workItem from="1584503947857" duration="3350000" />
     </task>
     <task id="LOCAL-00001" summary="Update.">
       <created>1582335358059</created>
@@ -366,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582747835683</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Bump 20w10a.">
+      <created>1583359057542</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583359057542</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +384,8 @@
     <MESSAGE value="idk." />
     <MESSAGE value="Try to fix /tps." />
     <MESSAGE value="Bump 20w09a." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bump 20w09a." />
+    <MESSAGE value="Bump 20w10a." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bump 20w10a." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -389,10 +393,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1582763057624" />
-    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1582756443730">
+    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1584504359646">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1582756443730" />
+    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584504359646" />
+    <state x="566" y="297" width="416" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1584507815239">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="566" y="297" width="416" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1584507815239" />
     <state x="237" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582668797427">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -401,26 +409,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1582678476322" />
-    <state x="234" y="6" key="CommitChangelistDialog2" timestamp="1582747832160">
+    <state x="234" y="6" key="CommitChangelistDialog2" timestamp="1584508684853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="234" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582747832160" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1582848844087">
+    <state x="234" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584508684853" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1583558640145">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582848844087" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1582848844087">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583558640145" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1583558640144">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582848844087" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1582848844087">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583558640144" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1583558640144">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582848844087" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1582848844087">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583558640144" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1583558640145">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582848844087" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583558640145" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1582664910644">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -437,17 +445,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582664910643" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1582747837165">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1583359059063">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1582747837165" />
-    <state x="470" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1583356658296">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1583359059063" />
+    <state x="470" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1584503947844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="470" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583356658296" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1583356665736">
+    <state x="470" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584503947844" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584504444683">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1583356665736" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584504444683" />
   </component>
 </project>

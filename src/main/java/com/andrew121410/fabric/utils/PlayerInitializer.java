@@ -25,9 +25,11 @@ public class PlayerInitializer {
 
     public void load(LackPlayer lackPlayer) {
         this.homeManager.getAllHomesFromISQL(lackPlayer);
+        main.getDiscordAddon().sendJoinMessage(lackPlayer);
     }
 
     public void unload(LackPlayer lackPlayer) {
         this.main.getSetListMap().unloadPlayer(lackPlayer);
+        main.getDiscordAddon().sendLeaveMessage(lackPlayer);
     }
 }

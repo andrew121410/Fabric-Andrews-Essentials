@@ -11,10 +11,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerManager.class)
-public class OnPlayerJoinEvent {
+public class MixinPlayerManger {
 
     @Inject(method = "onPlayerConnect", at = @At(value = "RETURN"))
-    public void onPlayerConnect(ClientConnection clientConnection, ServerPlayerEntity playerEntity, CallbackInfo callbackInfo) {
+    public void playerJoin(ClientConnection clientConnection, ServerPlayerEntity playerEntity, CallbackInfo callbackInfo) {
         Main.getMain().getPlayerInitializer().load(new LackPlayer(playerEntity));
+    }
+
+    @Inject(method = "remove", at = @At(value = "RETURN"))
+    public void playerLeave(final ServerPlayerEntity serverPlayerEntity, CallbackInfo callbackInfo) {
+        Main.getMain().getPlayerInitializer().unload(new LackPlayer(serverPlayerEntity));
     }
 }

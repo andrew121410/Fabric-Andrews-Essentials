@@ -5,6 +5,8 @@ import com.andrew121410.fabric.commands.gm.gma;
 import com.andrew121410.fabric.commands.gm.gmc;
 import com.andrew121410.fabric.commands.gm.gms;
 import com.andrew121410.fabric.commands.gm.gmsp;
+import com.andrew121410.fabric.commands.hide.hide;
+import com.andrew121410.fabric.commands.hide.unhide;
 import com.andrew121410.fabric.commands.home.delhome;
 import com.andrew121410.fabric.commands.home.home;
 import com.andrew121410.fabric.commands.home.sethome;
@@ -14,6 +16,7 @@ import com.andrew121410.fabric.commands.tpa.tpaccept;
 import com.andrew121410.fabric.commands.tpa.tpdeny;
 import com.andrew121410.fabric.commands.tps;
 import com.andrew121410.fabric.commands.version;
+import com.andrew121410.fabric.utils.DiscordAddon;
 import com.andrew121410.fabric.utils.PlayerInitializer;
 import com.andrew121410.fabric.utils.SetListMap;
 import com.andrew121410.fabric.utils.TpsHelper;
@@ -33,6 +36,8 @@ public class Main implements ModInitializer {
     private PlayerInitializer playerInitializer;
     private TpsHelper tpsHelper;
 
+    private DiscordAddon discordAddon;
+
     @Override
     public void onInitialize() {
         main = this;
@@ -45,9 +50,13 @@ public class Main implements ModInitializer {
 
         this.tpsHelper = new TpsHelper();
         ServerTickCallback.EVENT.register(this.tpsHelper::tick);
+
+        this.discordAddon = new DiscordAddon(true);
+        this.discordAddon.sendServerStartMessage();
     }
 
     public void onShutdown() {
+        this.discordAddon.sendServerQuitMessage();
         System.out.println("[SHUTDOWN] Fabric-Andrews-Essentials.");
     }
 
@@ -70,6 +79,9 @@ public class Main implements ModInitializer {
 
         CommandRegistry.INSTANCE.register(false, new spawn(this)::register);
         CommandRegistry.INSTANCE.register(false, new back(this)::register);
+
+        CommandRegistry.INSTANCE.register(false, new hide(this)::register);
+        CommandRegistry.INSTANCE.register(false, new unhide(this)::register);
     }
 
     public SetListMap getSetListMap() {
@@ -90,5 +102,9 @@ public class Main implements ModInitializer {
 
     public MinecraftDedicatedServer getMinecraftDedicatedServer() {
         return minecraftDedicatedServer;
+    }
+
+    public DiscordAddon getDiscordAddon() {
+        return discordAddon;
     }
 }
