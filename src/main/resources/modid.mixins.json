@@ -6,6 +6,7 @@
   "mixins": [
     "MixinMinecraftServer",
     "MixinPlayerManger",
+    "MixinServerLoginNetworkHandler",
     "MixinServerPlayNetworkHandler",
     "OnPlayerDeathEvent",
     "OnPlayerTeleportEvent",
