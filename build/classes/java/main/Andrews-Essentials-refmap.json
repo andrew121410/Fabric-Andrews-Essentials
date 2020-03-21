@@ -10,6 +10,9 @@
       "onPlayerConnect": "Lnet/minecraft/class_3324;method_14570(Lnet/minecraft/class_2535;Lnet/minecraft/class_3222;)V",
       "remove": "Lnet/minecraft/class_3324;method_14611(Lnet/minecraft/class_3222;)V"
     },
+    "com/andrew121410/fabric/mixin/MixinServerLoginNetworkHandler": {
+      "tick": "Lnet/minecraft/class_3248;method_18785()V"
+    },
     "com/andrew121410/fabric/mixin/OnPlayerDeathEvent": {
       "onDeath": "Lnet/minecraft/class_3222;method_6078(Lnet/minecraft/class_1282;)V"
     },
@@ -34,6 +37,9 @@
       "com/andrew121410/fabric/mixin/MixinPlayerManger": {
         "onPlayerConnect": "Lnet/minecraft/class_3324;method_14570(Lnet/minecraft/class_2535;Lnet/minecraft/class_3222;)V",
         "remove": "Lnet/minecraft/class_3324;method_14611(Lnet/minecraft/class_3222;)V"
+      },
+      "com/andrew121410/fabric/mixin/MixinServerLoginNetworkHandler": {
+        "tick": "Lnet/minecraft/class_3248;method_18785()V"
       },
       "com/andrew121410/fabric/mixin/OnPlayerDeathEvent": {
         "onDeath": "Lnet/minecraft/class_3222;method_6078(Lnet/minecraft/class_1282;)V"
