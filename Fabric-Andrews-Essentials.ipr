@@ -232,13 +232,13 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="Gradle: com.github.andrew121410:CCUtilsJava:5e6fa7945c">
+    <library name="Gradle: com.github.andrew121410:CCUtilsJava:87eab2058a">
       <CLASSES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.andrew121410/CCUtilsJava/5e6fa7945c/d1d30a8ce461f1a996b3fe968f2f7815ce83d16d/CCUtilsJava-5e6fa7945c.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.andrew121410/CCUtilsJava/87eab2058a/1ac7a3dab4bba3bc1ff2bf7ce3944ec31e6948a3/CCUtilsJava-87eab2058a.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.andrew121410/CCUtilsJava/5e6fa7945c/232677e1033bc1cfef33b409f70f9448d99f0090/CCUtilsJava-5e6fa7945c-sources.jar!/" />
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.andrew121410/CCUtilsJava/87eab2058a/61840396388f15a617a419abaf8982d3aabfffca/CCUtilsJava-87eab2058a-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: com.github.l89669:bukkitYaml:0.1-pre">

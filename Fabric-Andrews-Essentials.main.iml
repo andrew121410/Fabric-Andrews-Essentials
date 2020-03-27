@@ -30,7 +30,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Gradle: com.github.andrew121410:CCUtilsJava:5e6fa7945c" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.andrew121410:CCUtilsJava:87eab2058a" level="project" />
     <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.28.0" level="project" />
     <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.mojang:patchy:1.1" level="project" />
