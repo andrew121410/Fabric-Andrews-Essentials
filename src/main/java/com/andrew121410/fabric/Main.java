@@ -16,6 +16,10 @@ import com.andrew121410.fabric.commands.tpa.tpaccept;
 import com.andrew121410.fabric.commands.tpa.tpdeny;
 import com.andrew121410.fabric.commands.tps;
 import com.andrew121410.fabric.commands.version;
+import com.andrew121410.fabric.commands.warp.delwarp;
+import com.andrew121410.fabric.commands.warp.setwarp;
+import com.andrew121410.fabric.commands.warp.warp;
+import com.andrew121410.fabric.managers.WarpManager;
 import com.andrew121410.fabric.utils.DiscordAddon;
 import com.andrew121410.fabric.utils.PlayerInitializer;
 import com.andrew121410.fabric.utils.SetListMap;
@@ -26,7 +30,11 @@ import net.fabricmc.fabric.api.registry.CommandRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.dedicated.MinecraftDedicatedServer;
 
+import java.io.File;
+
 public class Main implements ModInitializer {
+
+    private File modConfigFolder;
 
     private MinecraftDedicatedServer minecraftDedicatedServer;
 
@@ -38,13 +46,24 @@ public class Main implements ModInitializer {
 
     private DiscordAddon discordAddon;
 
+    private WarpManager warpManager;
+
     @Override
     public void onInitialize() {
         main = this;
         this.minecraftDedicatedServer = (MinecraftDedicatedServer) FabricLoader.getInstance().getGameInstance();
+        this.modConfigFolder = new File("Andrews-Config/");
+
+        if (!modConfigFolder.isDirectory()) {
+            this.modConfigFolder.mkdir();
+        }
+
         System.out.println("Loading Andrews Essentials");
         this.setListMap = new SetListMap();
         this.playerInitializer = new PlayerInitializer(this);
+
+        this.warpManager = new WarpManager(this);
+        this.warpManager.load();
 
         regCommands();
 
@@ -82,6 +101,10 @@ public class Main implements ModInitializer {
 
         CommandRegistry.INSTANCE.register(false, new hide(this)::register);
         CommandRegistry.INSTANCE.register(false, new unhide(this)::register);
+
+        CommandRegistry.INSTANCE.register(false, new warp(this)::register);
+        CommandRegistry.INSTANCE.register(false, new setwarp(this)::register);
+        CommandRegistry.INSTANCE.register(false, new delwarp(this)::register);
     }
 
     public SetListMap getSetListMap() {
@@ -106,5 +129,13 @@ public class Main implements ModInitializer {
 
     public DiscordAddon getDiscordAddon() {
         return discordAddon;
+    }
+
+    public File getModConfigFolder() {
+        return modConfigFolder;
+    }
+
+    public WarpManager getWarpManager() {
+        return warpManager;
     }
 }

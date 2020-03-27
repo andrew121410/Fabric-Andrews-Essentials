@@ -1,9 +1,9 @@
 package com.andrew121410.fabric.managers;
 
-import CCUtils.Storage.ISQL;
+import com.andrew121410.CCUtils.storage.ISQL;
 import com.andrew121410.fabric.Main;
-import com.andrew121410.lackAPI.player.Location;
 import com.andrew121410.lackAPI.player.LackPlayer;
+import com.andrew121410.lackAPI.player.Location;
 import net.minecraft.world.dimension.DimensionType;
 
 import java.sql.PreparedStatement;
@@ -24,8 +24,8 @@ public class HomeManager {
 
         this.rawHomesMap = this.plugin.getSetListMap().getHomesMap();
 
-        isql.Connect();
-        isql.ExecuteCommand("CREATE TABLE IF NOT EXISTS `Homes` (" +
+        isql.connect();
+        isql.executeCommand("CREATE TABLE IF NOT EXISTS `Homes` (" +
                 "`UUID` TEXT," +
                 "`Date` TEXT," +
                 "`PlayerName` TEXT," +
@@ -37,15 +37,15 @@ public class HomeManager {
                 "`PITCH` TEXT," +
                 "`World` TEXT" +
                 ");");
-        isql.Disconnect();
+        isql.disconnect();
     }
 
     public void getAllHomesFromISQL(LackPlayer player) {
         rawHomesMap.putIfAbsent(player.getUUID(), new HashMap<>());
 
-        isql.Connect();
+        isql.connect();
 
-        ResultSet rs = isql.GetResult("SELECT * FROM Homes WHERE (UUID='" + player.getUUID().toString() + "');");
+        ResultSet rs = isql.getResult("SELECT * FROM Homes WHERE (UUID='" + player.getUUID().toString() + "');");
         try {
             while (rs.next()) {
                 String UUID = rs.getString("UUID");
@@ -65,7 +65,7 @@ public class HomeManager {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            isql.Disconnect();
+            isql.disconnect();
         }
     }
 
@@ -84,15 +84,15 @@ public class HomeManager {
     }
 
     private void deleteHomeFromISQL(ISQL isql, LackPlayer player, String HomeName) {
-        isql.Connect();
-        isql.ExecuteCommand("DELETE FROM Homes WHERE UUID='" + player.getUUID() + "' AND HomeName='" + HomeName.toLowerCase() + "'");
-        isql.Disconnect();
+        isql.connect();
+        isql.executeCommand("DELETE FROM Homes WHERE UUID='" + player.getUUID() + "' AND HomeName='" + HomeName.toLowerCase() + "'");
+        isql.disconnect();
     }
 
     public void deleteAllHomesFromISQL(ISQL isql, LackPlayer player) {
-        isql.Connect();
-        isql.ExecuteCommand("DELETE FROM Homes WHERE UUID='" + player.getUUID() + "'");
-        isql.Disconnect();
+        isql.connect();
+        isql.executeCommand("DELETE FROM Homes WHERE UUID='" + player.getUUID() + "'");
+        isql.disconnect();
         rawHomesMap.remove(player.getUUID());
     }
 
@@ -118,8 +118,8 @@ public class HomeManager {
     }
 
     private void setHomeToISQL(ISQL isql, UUID uuid, String PlayerName, String HomeName, Location location) {
-        isql.Connect();
-        PreparedStatement preparedStatement = isql.ExecuteCommandPreparedStatement("INSERT INTO Homes (UUID,Date,PlayerName,HomeName,X,Y,Z,YAW,PITCH,World) VALUES (?,?,?,?,?,?,?,?,?,?);");
+        isql.connect();
+        PreparedStatement preparedStatement = isql.executeCommandPreparedStatement("INSERT INTO Homes (UUID,Date,PlayerName,HomeName,X,Y,Z,YAW,PITCH,World) VALUES (?,?,?,?,?,?,?,?,?,?);");
         try {
             preparedStatement.setString(1, uuid.toString());
             preparedStatement.setString(2, "0");
@@ -135,7 +135,7 @@ public class HomeManager {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            isql.Disconnect();
+            isql.disconnect();
         }
 
     }

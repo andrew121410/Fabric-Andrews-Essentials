@@ -1,5 +1,6 @@
 package com.andrew121410.fabric.utils;
 
+import com.andrew121410.fabric.objects.Warp;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.andrew121410.lackAPI.player.Location;
 
@@ -16,16 +17,28 @@ public class SetListMap {
     private Map<UUID, Map<String, Location>> homesMap; //0
     private Map<UUID, Location> backMap; //0
 
+    private Map<String, Warp> warpsMap; //1
+
     public SetListMap() {
         this.tpaMap = new HashMap<>();
         this.homesMap = new HashMap<>();
         this.backMap = new HashMap<>();
+
+        this.warpsMap = new HashMap<>();
     }
 
     public void unloadPlayer(LackPlayer lackPlayer) {
         tpaMap.remove(lackPlayer.getUUID());
         homesMap.remove(lackPlayer.getPlayerEntity().getUuid());
         backMap.remove(lackPlayer.getPlayerEntity().getUuid());
+    }
+
+    public void clear() {
+        this.tpaMap.clear();
+        this.homesMap.clear();
+        this.backMap.clear();
+
+        this.warpsMap.clear();
     }
 
     //GETTERS
@@ -40,5 +53,9 @@ public class SetListMap {
 
     public Map<UUID, Location> getBackMap() {
         return backMap;
+    }
+
+    public Map<String, Warp> getWarpsMap() {
+        return warpsMap;
     }
 }

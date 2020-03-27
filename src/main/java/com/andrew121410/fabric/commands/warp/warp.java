@@ -1,11 +1,8 @@
-package com.andrew121410.fabric.commands.home;
+package com.andrew121410.fabric.commands.warp;
 
-import com.andrew121410.CCUtils.storage.ISQL;
-import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.fabric.Main;
-import com.andrew121410.fabric.managers.HomeManager;
+import com.andrew121410.fabric.objects.Warp;
 import com.andrew121410.lackAPI.player.LackPlayer;
-import com.andrew121410.lackAPI.player.Location;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -15,32 +12,22 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-import java.io.File;
 import java.util.Map;
-import java.util.UUID;
 
-public class home {
+public class warp {
 
-    private Map<UUID, Map<String, Location>> homesMap;
-
+    private Map<String, Warp> warpMap;
     private Main main;
 
-    private ISQL sqLite;
-    private HomeManager homeManager;
-
-    public home(Main main) {
+    public warp(Main main) {
         this.main = main;
-
-        this.homesMap = this.main.getSetListMap().getHomesMap();
-
-        this.sqLite = new SQLite(new File("Andrews-Config/"), "Homes");
-        this.homeManager = new HomeManager(this.main, this.sqLite);
+        this.warpMap = this.main.getSetListMap().getWarpsMap();
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
-        commandDispatcher.register(CommandManager.literal("home")
-                .then(CommandManager.argument("home", StringArgumentType.string())
-                        .suggests(new HomeArgumentType(this.main)::suggest)
+        commandDispatcher.register(CommandManager.literal("warp")
+                .then(CommandManager.argument("warp", StringArgumentType.string())
+                        .suggests(new WarpArgumentType(this.main)::suggest)
                         .executes(this::go))
                 .executes(this::no));
     }
@@ -49,10 +36,10 @@ public class home {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        String home = StringArgumentType.getString(ctx, "home");
-        Location homeLoc = homeManager.getHome(lackPlayer, home);
-        if (home != null) {
-            lackPlayer.teleport(homeLoc);
+        String warpName = StringArgumentType.getString(ctx, "warp");
+        Warp warp = this.warpMap.get(warpName);
+        if (warp.getLocation() != null) {
+            lackPlayer.teleport(warp.getLocation());
             lackPlayer.sendColorMessage("Teleporting...", Formatting.GOLD);
         }
         return 1;

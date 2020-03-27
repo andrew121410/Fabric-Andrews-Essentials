@@ -1,8 +1,8 @@
-package com.andrew121410.fabric.commands.home;
+package com.andrew121410.fabric.commands.warp;
 
 import com.andrew121410.fabric.Main;
+import com.andrew121410.fabric.objects.Warp;
 import com.andrew121410.lackAPI.player.LackPlayer;
-import com.andrew121410.lackAPI.player.Location;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.Suggestions;
@@ -12,33 +12,27 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
-public class HomeArgumentType {
+public class WarpArgumentType {
 
-    private Map<UUID, Map<String, Location>> homeMap;
+    private Map<String, Warp> warpMap;
 
     private Main main;
 
-    public HomeArgumentType(Main main) {
+    public WarpArgumentType(Main main) {
         this.main = main;
-        this.homeMap = this.main.getSetListMap().getHomesMap();
+        this.warpMap = this.main.getSetListMap().getWarpsMap();
     }
 
     public CompletableFuture<Suggestions> suggest(CommandContext<ServerCommandSource> context, SuggestionsBuilder builder) throws CommandSyntaxException {
+        if (warpMap.isEmpty()) return builder.buildFuture();
         ServerPlayerEntity serverPlayerEntity = context.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(serverPlayerEntity);
 
-        if (homeMap.get(lackPlayer.getUUID()).isEmpty()) {
-            return builder.buildFuture();
-        }
-
-        Set<String> homeSet = homeMap.get(lackPlayer.getUUID()).keySet();
-        String[] homeString = homeSet.toArray(new String[0]);
-        for (String s : homeString) {
-            builder.suggest(s);
-        }
+        Set<String> warpSet = warpMap.keySet();
+        String[] warpStrings = warpSet.toArray(new String[0]);
+        for (String s : warpStrings) builder.suggest(s);
         return builder.buildFuture();
     }
 

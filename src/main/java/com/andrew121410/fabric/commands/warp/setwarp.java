@@ -1,10 +1,7 @@
-package com.andrew121410.fabric.commands.home;
+package com.andrew121410.fabric.commands.warp;
 
-import com.andrew121410.CCUtils.storage.ISQL;
-import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.fabric.Main;
-import com.andrew121410.fabric.managers.HomeManager;
-import com.andrew121410.lackAPI.player.Location;
+import com.andrew121410.fabric.objects.Warp;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -15,33 +12,22 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-import java.io.File;
 import java.util.Map;
-import java.util.UUID;
 
-public class delhome {
+public class setwarp {
 
-
-    private Map<UUID, Map<String, Location>> homesMap;
-
+    private Map<String, Warp> warpMap;
     private Main main;
 
-    private ISQL sqLite;
-    private HomeManager homeManager;
-
-    public delhome(Main main) {
+    public setwarp(Main main) {
         this.main = main;
-
-        this.homesMap = this.main.getSetListMap().getHomesMap();
-
-        this.sqLite = new SQLite(new File("Andrews-Config/"), "Homes");
-        this.homeManager = new HomeManager(this.main, this.sqLite);
+        this.warpMap = this.main.getSetListMap().getWarpsMap();
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
-        commandDispatcher.register(CommandManager.literal("delhome")
-                .then(CommandManager.argument("home", StringArgumentType.string())
-                        .suggests(new HomeArgumentType(this.main)::suggest)
+        commandDispatcher.register(CommandManager.literal("setwarp")
+                .requires(it -> it.hasPermissionLevel(2))
+                .then(CommandManager.argument("warp", StringArgumentType.string())
                         .executes(this::go))
                 .executes(this::no));
     }
@@ -50,10 +36,11 @@ public class delhome {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        String home = StringArgumentType.getString(ctx, "home");
+        String warpName = StringArgumentType.getString(ctx, "warp");
+        Warp warp = new Warp(warpName, lackPlayer.getDisplayName(), lackPlayer.getLocation());
+        this.main.getWarpManager().save(warp);
 
-        homeManager.deleteHome(sqLite, lackPlayer, home);
-        lackPlayer.sendColorMessage("The home has been deleted.", Formatting.YELLOW);
+        lackPlayer.sendColorMessage("[&6Warp&r] &aWarp has been set.");
         return 1;
     }
 
@@ -61,7 +48,7 @@ public class delhome {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        lackPlayer.sendColorMessage("Please check your command and try again.", Formatting.RED);
+        lackPlayer.sendColorMessage("WARP NOT SET -> Usage: /setwarp (WarpName)", Formatting.RED);
         return 1;
     }
 }

@@ -6,11 +6,13 @@
   "mixins": [
     "MixinMinecraftServer",
     "MixinPlayerManger",
+    "MixinServerLoginNetworkHandler",
     "MixinServerPlayNetworkHandler",
     "OnPlayerDeathEvent",
     "OnPlayerTeleportEvent",
     "OnPlayerTeleportEventv2",
-    "MixinItemEntity"
+    "MixinItemEntity",
+    "MixinAnvilScreenHandler"
   ],
   "client": [
   ],
