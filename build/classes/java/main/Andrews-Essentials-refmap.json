@@ -24,10 +24,6 @@
     },
     "com/andrew121410/fabric/mixin/MixinServerPlayNetworkHandler": {
       "onGameMessage": "Lnet/minecraft/class_3244;method_12048(Lnet/minecraft/class_2797;)V"
-    },
-    "com/andrew121410/fabric/mixin/MixinAnvilScreenHandler": {
-      "Lnet/minecraft/entity/player/PlayerAbilities;creativeMode:Z": "Lnet/minecraft/class_1656;field_7477:Z",
-      "updateResult": "Lnet/minecraft/class_1706;method_24928()V"
     }
   },
   "data": {
@@ -56,10 +52,6 @@
       },
       "com/andrew121410/fabric/mixin/MixinServerPlayNetworkHandler": {
         "onGameMessage": "Lnet/minecraft/class_3244;method_12048(Lnet/minecraft/class_2797;)V"
-      },
-      "com/andrew121410/fabric/mixin/MixinAnvilScreenHandler": {
-        "Lnet/minecraft/entity/player/PlayerAbilities;creativeMode:Z": "Lnet/minecraft/class_1656;field_7477:Z",
-        "updateResult": "Lnet/minecraft/class_1706;method_24928()V"
       }
     }
   }

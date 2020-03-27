@@ -11,8 +11,7 @@
     "OnPlayerDeathEvent",
     "OnPlayerTeleportEvent",
     "OnPlayerTeleportEventv2",
-    "MixinItemEntity",
-    "MixinAnvilScreenHandler"
+    "MixinItemEntity"
   ],
   "client": [
   ],

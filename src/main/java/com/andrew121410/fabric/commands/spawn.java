@@ -2,17 +2,16 @@ package com.andrew121410.fabric.commands;
 
 import com.andrew121410.fabric.Main;
 import com.andrew121410.lackAPI.player.LackPlayer;
+import com.andrew121410.lackAPI.player.Location;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.minecraft.scoreboard.Scoreboard;
-import net.minecraft.scoreboard.ScoreboardObjective;
-import net.minecraft.scoreboard.ScoreboardPlayerScore;
-import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Formatting;
+import net.minecraft.world.dimension.DimensionType;
 
 public class spawn {
 
@@ -31,12 +30,8 @@ public class spawn {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        ServerScoreboard serverScoreboard = player.getServer().getScoreboard();
-        Scoreboard scoreboard = player.getScoreboard();
-        ScoreboardObjective scoreboardObjective = serverScoreboard.getObjective("spawn");
-        ScoreboardPlayerScore scoreboardPlayerScore = new ScoreboardPlayerScore(scoreboard, scoreboardObjective, lackPlayer.getDisplayName());
-        scoreboardPlayerScore.setScore(1);
-        serverScoreboard.updateScore(scoreboardPlayerScore);
+        ServerWorld world = this.main.getMinecraftDedicatedServer().getWorld(DimensionType.OVERWORLD);
+        lackPlayer.teleport(new Location(Double.parseDouble(String.valueOf(world.getLevelProperties().getSpawnX())), Double.parseDouble(String.valueOf(world.getLevelProperties().getSpawnY())), Double.parseDouble(String.valueOf(world.getLevelProperties().getSpawnZ())), 0, 0, world));
         lackPlayer.sendColorMessage("Teleporting...", Formatting.GOLD);
         return 1;
     }

@@ -1,7 +1,7 @@
 package com.andrew121410.fabric.utils;
 
-import CCUtils.Storage.ISQL;
-import CCUtils.Storage.SQLite;
+import com.andrew121410.CCUtils.storage.ISQL;
+import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.fabric.Main;
 import com.andrew121410.fabric.managers.HomeManager;
 import com.andrew121410.lackAPI.player.LackPlayer;

@@ -1,6 +1,6 @@
 package com.andrew121410.fabric.utils;
 
-import CCUtils.Sockets.Sockets.Client.SimpleSocketClient;
+import com.andrew121410.CCUtils.network.sockets.Sockets.Client.SimpleSocketClient;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import org.json.simple.JSONObject;
 
