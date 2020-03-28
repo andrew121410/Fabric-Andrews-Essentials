@@ -15,6 +15,9 @@
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <exclude-output />
+    <content url="file://$MODULE_DIR$/build/generated/sources/annotationProcessor/java/main">
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
+    </content>
     <content url="file://$MODULE_DIR$/src/main">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
@@ -109,9 +112,9 @@
     <orderEntry type="library" name="Gradle: net.fabricmc.fabric-api:fabric-tag-extensions-v0:0.1.3+abd91580d1@net.fabricmc.yarn.20w12a.20w12a+build.3-v2" level="project" />
     <orderEntry type="library" name="Gradle: net.fabricmc.fabric-api:fabric-textures-v0:1.0.4+821cdba7d1@net.fabricmc.yarn.20w12a.20w12a+build.3-v2" level="project" />
     <orderEntry type="library" name="Gradle: net.fabricmc:fabric-loader:0.7.8+build.187@net.fabricmc.yarn.20w12a.20w12a+build.3-v2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: net.fabricmc:dev-launch-injector:0.2.0+build.6" level="project" />
     <orderEntry type="library" name="Gradle: com.github.l89669:bukkitYaml:0.1-pre" level="project" />
     <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.23" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: net.fabricmc:dev-launch-injector:0.2.0+build.6" level="project" />
     <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:8.0.15" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.10" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:failureaccess:1.0.1" level="project" />
@@ -120,6 +123,7 @@
     <orderEntry type="library" name="Gradle: org.checkerframework:checker-qual:2.10.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.errorprone:error_prone_annotations:2.3.4" level="project" />
     <orderEntry type="library" name="Gradle: com.google.j2objc:j2objc-annotations:1.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
@@ -129,7 +133,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.18.12" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.1" level="project" />
   </component>
 </module>

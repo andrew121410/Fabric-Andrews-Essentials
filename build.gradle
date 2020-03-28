@@ -14,6 +14,11 @@ minecraft {
 }
 
 dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
@@ -78,6 +83,7 @@ publishing {
     // select the repositories you want to publish to
     repositories {
         // uncomment to publish to the local maven
+        mavenCentral()
         // mavenLocal()
     }
 }
