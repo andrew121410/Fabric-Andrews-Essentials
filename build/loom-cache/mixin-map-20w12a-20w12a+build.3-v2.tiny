@@ -1,4 +1,0 @@
-v1	named	intermediary
-FIELD	com/andrew121410/fabric/mixin/MixinServerPlayNetworkHandler	Lnet/minecraft/server/network/ServerPlayerEntity;	player	field_14140
-METHOD	com/andrew121410/fabric/mixin/MixinMinecraftServer	()Ljava/lang/String;	getServerModName	getServerModName
-METHOD	com/andrew121410/fabric/mixin/MixinItemEntity	()Lnet/minecraft/item/ItemStack;	getStack	method_6983

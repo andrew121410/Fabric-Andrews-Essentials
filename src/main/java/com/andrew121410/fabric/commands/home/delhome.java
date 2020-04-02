@@ -1,10 +1,6 @@
 package com.andrew121410.fabric.commands.home;
 
-import com.andrew121410.CCUtils.storage.ISQL;
-import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.fabric.Main;
-import com.andrew121410.fabric.managers.HomeManager;
-import com.andrew121410.lackAPI.player.Location;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -15,27 +11,12 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-import java.io.File;
-import java.util.Map;
-import java.util.UUID;
-
 public class delhome {
-
-
-    private Map<UUID, Map<String, Location>> homesMap;
 
     private Main main;
 
-    private ISQL sqLite;
-    private HomeManager homeManager;
-
     public delhome(Main main) {
         this.main = main;
-
-        this.homesMap = this.main.getSetListMap().getHomesMap();
-
-        this.sqLite = new SQLite(new File("Andrews-Config/"), "Homes");
-        this.homeManager = new HomeManager(this.main, this.sqLite);
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
@@ -52,7 +33,7 @@ public class delhome {
 
         String home = StringArgumentType.getString(ctx, "home");
 
-        homeManager.deleteHome(sqLite, lackPlayer, home);
+        this.main.getHomeManager().delete(lackPlayer.getUUID(), home);
         lackPlayer.sendColorMessage("The home has been deleted.", Formatting.YELLOW);
         return 1;
     }

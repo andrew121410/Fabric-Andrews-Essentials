@@ -1,9 +1,6 @@
 package com.andrew121410.fabric.commands.home;
 
-import com.andrew121410.CCUtils.storage.ISQL;
-import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.fabric.Main;
-import com.andrew121410.fabric.managers.HomeManager;
 import com.andrew121410.fabric.utils.API;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.andrew121410.lackAPI.player.Location;
@@ -16,7 +13,6 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-import java.io.File;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -28,16 +24,9 @@ public class sethome {
 
     private Main main;
 
-    private ISQL sqLite;
-    private HomeManager homeManager;
-
     public sethome(Main main) {
         this.main = main;
-
         this.homesMap = this.main.getSetListMap().getHomesMap();
-
-        this.sqLite = new SQLite(new File("Andrews-Config/"), "Homes");
-        this.homeManager = new HomeManager(this.main, this.sqLite);
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
@@ -71,7 +60,7 @@ public class sethome {
         }
 
         String home = StringArgumentType.getString(ctx, "home");
-        homeManager.setHome(sqLite, lackPlayer, home);
+        this.main.getHomeManager().save(lackPlayer, home, lackPlayer.getLocation());
         lackPlayer.sendColorMessage("Your home has been set.", Formatting.GREEN);
         return 1;
     }

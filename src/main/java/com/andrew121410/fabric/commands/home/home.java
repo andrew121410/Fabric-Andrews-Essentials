@@ -1,9 +1,6 @@
 package com.andrew121410.fabric.commands.home;
 
-import com.andrew121410.CCUtils.storage.ISQL;
-import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.fabric.Main;
-import com.andrew121410.fabric.managers.HomeManager;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.andrew121410.lackAPI.player.Location;
 import com.mojang.brigadier.CommandDispatcher;
@@ -15,7 +12,6 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Formatting;
 
-import java.io.File;
 import java.util.Map;
 import java.util.UUID;
 
@@ -25,16 +21,9 @@ public class home {
 
     private Main main;
 
-    private ISQL sqLite;
-    private HomeManager homeManager;
-
     public home(Main main) {
         this.main = main;
-
         this.homesMap = this.main.getSetListMap().getHomesMap();
-
-        this.sqLite = new SQLite(new File("Andrews-Config/"), "Homes");
-        this.homeManager = new HomeManager(this.main, this.sqLite);
     }
 
     public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
@@ -50,8 +39,8 @@ public class home {
         LackPlayer lackPlayer = new LackPlayer(player);
 
         String home = StringArgumentType.getString(ctx, "home");
-        Location homeLoc = homeManager.getHome(lackPlayer, home);
-        if (home != null) {
+        Location homeLoc = this.homesMap.get(lackPlayer.getUUID()).get(home);
+        if (home != null && homeLoc != null) {
             lackPlayer.teleport(homeLoc);
             lackPlayer.sendColorMessage("Teleporting...", Formatting.GOLD);
         }

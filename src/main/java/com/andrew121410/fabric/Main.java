@@ -19,6 +19,7 @@ import com.andrew121410.fabric.commands.version;
 import com.andrew121410.fabric.commands.warp.delwarp;
 import com.andrew121410.fabric.commands.warp.setwarp;
 import com.andrew121410.fabric.commands.warp.warp;
+import com.andrew121410.fabric.managers.HomeManager;
 import com.andrew121410.fabric.managers.WarpManager;
 import com.andrew121410.fabric.utils.DiscordAddon;
 import com.andrew121410.fabric.utils.PlayerInitializer;
@@ -47,6 +48,7 @@ public class Main implements ModInitializer {
     private DiscordAddon discordAddon;
 
     private WarpManager warpManager;
+    private HomeManager homeManager;
 
     @Override
     public void onInitialize() {
@@ -60,10 +62,13 @@ public class Main implements ModInitializer {
 
         System.out.println("Loading Andrews Essentials");
         this.setListMap = new SetListMap();
-        this.playerInitializer = new PlayerInitializer(this);
+
+        this.homeManager = new HomeManager(this);
 
         this.warpManager = new WarpManager(this);
         this.warpManager.load();
+
+        this.playerInitializer = new PlayerInitializer(this);
 
         regCommands();
 
@@ -137,5 +142,9 @@ public class Main implements ModInitializer {
 
     public WarpManager getWarpManager() {
         return warpManager;
+    }
+
+    public HomeManager getHomeManager() {
+        return homeManager;
     }
 }
