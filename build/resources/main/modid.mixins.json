@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.andrew121410.fabric.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinMinecraftServer",
+    "MixinPlayerManger",
+    "MixinServerLoginNetworkHandler",
+    "MixinServerPlayNetworkHandler",
+    "OnPlayerDeathEvent",
+    "OnPlayerTeleportEvent",
+    "OnPlayerTeleportEventv2",
+    "MixinItemEntity"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
