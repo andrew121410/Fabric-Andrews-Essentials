@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.andrew121410.fabric.Main"
+      "com.andrew121410.ess.Main"
     ]
   },
   "mixins": [
