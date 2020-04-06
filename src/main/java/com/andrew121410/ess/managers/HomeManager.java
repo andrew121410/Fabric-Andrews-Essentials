@@ -52,6 +52,8 @@ public class HomeManager {
     }
 
     public void save(LackPlayer player, String homeName, Location location) {
+        this.homesMap.get(player.getUUID()).put(homeName.toLowerCase(), location);
+
         SQLDataStore sqlDataStore = new SQLDataStore();
         sqlDataStore.getMap().put("UUID", String.valueOf(player.getUUID()));
         sqlDataStore.getMap().put("Date", "0");
