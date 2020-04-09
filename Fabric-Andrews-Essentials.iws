@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="153868eb-71bf-4b63-89da-0f7e517f71a5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/commands/echest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/player/LackPlayerInventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/ess/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/ess/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/ess/utils/API.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/andrew121410/ess/utils/API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-dev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-dev.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources-dev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources-dev.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0-sources.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Andrews-Essentials-1.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/managers/HomeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/managers/HomeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/commands/tpa/tpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/commands/tpa/tpa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/managers/WarpManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/managers/WarpManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/utils/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/ess/utils/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/lackAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/lackAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/player/LackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/lackAPI/player/LackPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +319,9 @@
       <workItem from="1585946810076" duration="1293000" />
       <workItem from="1586059556735" duration="486000" />
       <workItem from="1586145584200" duration="1039000" />
-      <workItem from="1586195117884" duration="250000" />
+      <workItem from="1586195117884" duration="650000" />
+      <workItem from="1586382907851" duration="1003000" />
+      <workItem from="1586411730427" duration="1593000" />
     </task>
     <task id="LOCAL-00001" summary="Update.">
       <created>1582335358059</created>
@@ -473,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586060016237</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fix /sethome">
+      <created>1586195406440</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1586195406440</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +499,8 @@
     <MESSAGE value="Bruh." />
     <MESSAGE value="ess is the package name for temp." />
     <MESSAGE value="Fixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes." />
+    <MESSAGE value="Fix /sethome" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix /sethome" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -510,10 +508,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1582763057624" />
-    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1585793876968">
+    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1586412169935">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585793876968" />
+    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1586412169935" />
     <state x="566" y="297" width="416" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1584507815239">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -566,21 +564,21 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582664910643" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586060027771">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586195575156">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586060027771" />
-    <state x="470" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586195120487">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586195575156" />
+    <state x="470" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586411842283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="470" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586195120487" />
+    <state x="470" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586411842283" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1585366523516">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585366523516" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1586146463994">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1586413162009">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1586146463994" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1586413162009" />
   </component>
 </project>

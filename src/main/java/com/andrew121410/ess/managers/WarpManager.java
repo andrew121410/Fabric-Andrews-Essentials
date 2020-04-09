@@ -48,7 +48,7 @@ public class WarpManager {
     public void load() {
         try {
             Multimap<String, SQLDataStore> multimap = easySQL.getEverything();
-            multimap.forEach((k, v) -> this.warpsMap.putIfAbsent(k, toWarp(v)));
+            multimap.forEach((k, v) -> this.warpsMap.putIfAbsent(v.getMap().get("Name"), toWarp(v)));
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -58,6 +58,10 @@ public class LackPlayer {
         return new LackPackets(this);
     }
 
+    public LackPlayerInventory getLackPlayerInventory() {
+        return new LackPlayerInventory(this);
+    }
+
     //VERY RAW,
     public ServerPlayerEntity getPlayerEntity() {
         return playerEntity;

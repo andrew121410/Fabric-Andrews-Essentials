@@ -39,6 +39,7 @@ public class tpa {
         ServerPlayerEntity playerTarget = EntityArgumentType.getPlayer(ctx, "player");
         LackPlayer targetLackPlayer = new LackPlayer(playerTarget);
 
+        this.tpaMap.remove(targetLackPlayer.getUUID());
         this.tpaMap.put(targetLackPlayer.getUUID(), lackPlayer);
         lackPlayer.sendColorMessage("You sent a tpa request to " + targetLackPlayer.getDisplayName(), Formatting.YELLOW);
         targetLackPlayer.sendColorMessage(lackPlayer.getDisplayName() + " has sent a tpa request to you.", Formatting.GREEN);
