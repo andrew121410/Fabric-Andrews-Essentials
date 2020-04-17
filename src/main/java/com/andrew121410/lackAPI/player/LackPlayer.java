@@ -1,6 +1,7 @@
 package com.andrew121410.lackAPI.player;
 
 import com.andrew121410.lackAPI.utils.TextFormat;
+import net.minecraft.network.MessageType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.LiteralText;
@@ -18,7 +19,7 @@ public class LackPlayer {
 
     public void sendRawMessage(String msg) {
         for (String part : msg.split("\n")) {
-            this.playerEntity.sendMessage(new LiteralText(part));
+            this.playerEntity.sendMessage(new LiteralText(part), MessageType.CHAT);
         }
     }
 
@@ -26,16 +27,16 @@ public class LackPlayer {
         for (String part : msg.split("\n")) {
             LiteralText component = new LiteralText(part);
             component.getStyle().setColor(formatting);
-            this.playerEntity.sendMessage(component);
+            this.playerEntity.sendMessage(component, MessageType.CHAT);
         }
     }
 
     public void sendColorMessage(String msg) {
-        this.playerEntity.sendMessage(TextFormat.stringToFormattedText(msg));
+        this.playerEntity.sendMessage(TextFormat.stringToFormattedText(msg), MessageType.CHAT);
     }
 
     public void teleport(Location location) {
-        playerEntity.teleport((ServerWorld) location.getWorld(), location.getVector3().getX(), location.getVector3().getY(), location.getVector3().getZ(), location.getYaw(), location.getPitch());
+        playerEntity.teleport((ServerWorld) location.getWorld(), location.getX(), location.getY(), location.getZ(), location.getYaw(), location.getPitch());
     }
 
     public Location getLocation() {

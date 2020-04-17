@@ -1,7 +1,7 @@
 package com.andrew121410.ess.commands.warp;
 
 import com.andrew121410.ess.Main;
-import com.andrew121410.ess.objects.Warp;
+import com.andrew121410.ess.objects.WarpObject;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class delwarp {
 
-    private Map<String, Warp> warpMap;
+    private Map<String, WarpObject> warpMap;
     private Main main;
 
     public delwarp(Main main) {

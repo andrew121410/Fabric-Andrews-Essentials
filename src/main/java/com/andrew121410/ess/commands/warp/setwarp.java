@@ -1,7 +1,7 @@
 package com.andrew121410.ess.commands.warp;
 
 import com.andrew121410.ess.Main;
-import com.andrew121410.ess.objects.Warp;
+import com.andrew121410.ess.objects.WarpObject;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class setwarp {
 
-    private Map<String, Warp> warpMap;
+    private Map<String, WarpObject> warpMap;
     private Main main;
 
     public setwarp(Main main) {
@@ -37,8 +37,8 @@ public class setwarp {
         LackPlayer lackPlayer = new LackPlayer(player);
 
         String warpName = StringArgumentType.getString(ctx, "warp");
-        Warp warp = new Warp(warpName, lackPlayer.getDisplayName(), lackPlayer.getLocation());
-        this.main.getWarpManager().save(warp);
+        WarpObject warpObject = new WarpObject(warpName, lackPlayer.getDisplayName(), lackPlayer.getLocation());
+        this.main.getWarpManager().save(warpObject);
 
         lackPlayer.sendColorMessage("[&6Warp&r] &aWarp has been set.");
         return 1;

@@ -1,6 +1,6 @@
 package com.andrew121410.ess.utils;
 
-import com.andrew121410.ess.objects.Warp;
+import com.andrew121410.ess.objects.WarpObject;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.andrew121410.lackAPI.player.Location;
 
@@ -17,7 +17,7 @@ public class SetListMap {
     private Map<UUID, Map<String, Location>> homesMap; //0
     private Map<UUID, Location> backMap; //0
 
-    private Map<String, Warp> warpsMap; //1
+    private Map<String, WarpObject> warpsMap; //1
 
     public SetListMap() {
         this.tpaMap = new HashMap<>();
@@ -55,7 +55,7 @@ public class SetListMap {
         return backMap;
     }
 
-    public Map<String, Warp> getWarpsMap() {
+    public Map<String, WarpObject> getWarpsMap() {
         return warpsMap;
     }
 }

@@ -5,10 +5,9 @@ import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.CCUtils.storage.easy.EasySQL;
 import com.andrew121410.CCUtils.storage.easy.SQLDataStore;
 import com.andrew121410.ess.Main;
-import com.andrew121410.ess.objects.Warp;
+import com.andrew121410.ess.objects.WarpObject;
 import com.andrew121410.lackAPI.player.Location;
 import com.google.common.collect.Multimap;
-import net.minecraft.world.dimension.DimensionType;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.util.Map;
 
 public class WarpManager {
 
-    private Map<String, Warp> warpsMap;
+    private Map<String, WarpObject> warpsMap;
 
     private Main main;
 
@@ -34,7 +33,7 @@ public class WarpManager {
 
         List<String> columns = new ArrayList<>();
         columns.add("Name");
-        columns.add("World");
+        columns.add("WORLD");
         columns.add("X");
         columns.add("Y");
         columns.add("Z");
@@ -42,22 +41,23 @@ public class WarpManager {
         columns.add("PITCH");
         columns.add("Owner");
 
-        this.easySQL.create(columns, true);
+        this.easySQL.create(columns, false);
     }
 
     public void load() {
         try {
-            Multimap<String, SQLDataStore> multimap = easySQL.getEverything();
-            multimap.forEach((k, v) -> this.warpsMap.putIfAbsent(v.getMap().get("Name"), toWarp(v)));
+            Multimap<String, SQLDataStore> everythingMap = easySQL.getEverything();
+            for (Map.Entry<String, SQLDataStore> entry : everythingMap.entries())
+                this.warpsMap.put(entry.getKey(), toWarp(entry.getValue()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void save(Warp warp) {
-        this.warpsMap.putIfAbsent(warp.getName(), warp);
+    public void save(WarpObject warpObject) {
+        this.warpsMap.putIfAbsent(warpObject.getName(), warpObject);
         try {
-            easySQL.save(toSQLDataStore(warp));
+            easySQL.save(toSQLDataStore(warpObject));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -70,30 +70,24 @@ public class WarpManager {
         easySQL.delete(toDelete);
     }
 
-    private Warp toWarp(SQLDataStore sqlDataStore) {
+    private WarpObject toWarp(SQLDataStore sqlDataStore) {
         String name = sqlDataStore.getMap().get("Name");
-        String worldID = sqlDataStore.getMap().get("World");
-        String x = sqlDataStore.getMap().get("X");
-        String y = sqlDataStore.getMap().get("Y");
-        String z = sqlDataStore.getMap().get("Z");
-        String yaw = sqlDataStore.getMap().get("YAW");
-        String pitch = sqlDataStore.getMap().get("PITCH");
         String owner = sqlDataStore.getMap().get("Owner");
-        return new Warp(name, owner, new Location(Double.parseDouble(x), Double.parseDouble(y), Double.parseDouble(z), Float.parseFloat(yaw), Float.parseFloat(pitch), main.getMinecraftDedicatedServer().getWorld(DimensionType.byRawId(Integer.parseInt(worldID)))));
+        return new WarpObject(name, owner, Location.from(sqlDataStore));
     }
 
-    private SQLDataStore toSQLDataStore(Warp warp) {
+    private SQLDataStore toSQLDataStore(WarpObject warpObject) {
         SQLDataStore sqlDataStore = new SQLDataStore();
-        Location location = warp.getLocation();
+        Location location = warpObject.getLocation();
         String worldID = String.valueOf(location.getWorld().getDimension().getType().getRawId());
-        sqlDataStore.getMap().put("Name", warp.getName().toLowerCase());
-        sqlDataStore.getMap().put("World", worldID);
+        sqlDataStore.getMap().put("Name", warpObject.getName().toLowerCase());
+        sqlDataStore.getMap().put("WORLD", worldID);
         sqlDataStore.getMap().put("X", String.valueOf(location.getVector3().getX()));
         sqlDataStore.getMap().put("Y", String.valueOf(location.getVector3().getY()));
         sqlDataStore.getMap().put("Z", String.valueOf(location.getVector3().getZ()));
         sqlDataStore.getMap().put("YAW", String.valueOf(location.getYaw()));
         sqlDataStore.getMap().put("PITCH", String.valueOf(location.getPitch()));
-        sqlDataStore.getMap().put("Owner", warp.getOwnerDisplayName());
+        sqlDataStore.getMap().put("Owner", warpObject.getOwner());
         return sqlDataStore;
     }
 }

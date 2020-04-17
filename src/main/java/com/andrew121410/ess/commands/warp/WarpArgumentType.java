@@ -1,7 +1,7 @@
 package com.andrew121410.ess.commands.warp;
 
 import com.andrew121410.ess.Main;
-import com.andrew121410.ess.objects.Warp;
+import com.andrew121410.ess.objects.WarpObject;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class WarpArgumentType {
 
-    private Map<String, Warp> warpMap;
+    private Map<String, WarpObject> warpMap;
 
     private Main main;
 

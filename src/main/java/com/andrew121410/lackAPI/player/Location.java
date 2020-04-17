@@ -1,20 +1,22 @@
 package com.andrew121410.lackAPI.player;
 
+import com.andrew121410.CCUtils.storage.easy.SQLDataStore;
+import com.andrew121410.ess.Main;
 import com.andrew121410.lackAPI.math.Vector3;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
 
-public class Location {
+import java.util.Objects;
 
-    private Vector3 vector3;
+public class Location extends Vector3 {
+
     private World world;
     private float yaw;
     private float pitch;
 
     public Location(double x, double y, double z, float yaw, float pitch, World world) {
-        this.vector3 = new Vector3(x, y, z);
+        super(x, y, z);
         this.yaw = yaw;
         this.pitch = pitch;
         this.world = world;
@@ -24,12 +26,18 @@ public class Location {
         return new Location(playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), playerEntity.yaw, playerEntity.pitch, playerEntity.getEntityWorld());
     }
 
-    public static Location from(BlockPos blockPos, ServerWorld serverWorld) {
-        return new Location(blockPos.getX(), blockPos.getY(), blockPos.getZ(), 0, 0, serverWorld);
+    public static Location from(SQLDataStore sqlDataStore) {
+        String X = sqlDataStore.getMap().get("X");
+        String Y = sqlDataStore.getMap().get("Y");
+        String Z = sqlDataStore.getMap().get("Z");
+        String YAW = sqlDataStore.getMap().get("YAW");
+        String PITCH = sqlDataStore.getMap().get("PITCH");
+        String WORLD = sqlDataStore.getMap().get("WORLD");
+        return new Location(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z), Float.parseFloat(YAW), Float.parseFloat(PITCH), Main.getMain().getMinecraftDedicatedServer().getWorld(DimensionType.byRawId(Integer.parseInt(WORLD))));
     }
 
     public Vector3 getVector3() {
-        return vector3;
+        return this;
     }
 
     public World getWorld() {
@@ -42,5 +50,29 @@ public class Location {
 
     public float getPitch() {
         return pitch;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return Float.compare(location.yaw, yaw) == 0 &&
+                Float.compare(location.pitch, pitch) == 0 &&
+                Objects.equals(world, location.world);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(world, yaw, pitch);
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "world=" + world +
+                ", yaw=" + yaw +
+                ", pitch=" + pitch +
+                '}';
     }
 }

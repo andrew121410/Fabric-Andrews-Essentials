@@ -1,7 +1,7 @@
 package com.andrew121410.ess.commands.warp;
 
 import com.andrew121410.ess.Main;
-import com.andrew121410.ess.objects.Warp;
+import com.andrew121410.ess.objects.WarpObject;
 import com.andrew121410.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class warp {
 
-    private Map<String, Warp> warpMap;
+    private Map<String, WarpObject> warpMap;
     private Main main;
 
     public warp(Main main) {
@@ -37,9 +37,10 @@ public class warp {
         LackPlayer lackPlayer = new LackPlayer(player);
 
         String warpName = StringArgumentType.getString(ctx, "warp");
-        Warp warp = this.warpMap.get(warpName);
-        if (warp.getLocation() != null) {
-            lackPlayer.teleport(warp.getLocation());
+        WarpObject warpObject = this.warpMap.get(warpName);
+
+        if (warpObject.getLocation() != null) {
+            lackPlayer.teleport(warpObject.getLocation());
             lackPlayer.sendColorMessage("Teleporting...", Formatting.GOLD);
         }
         return 1;

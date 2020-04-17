@@ -1,6 +1,6 @@
 package com.andrew121410.ess;
 
-import com.andrew121410.ess.commands.back;
+import com.andrew121410.ess.commands.*;
 import com.andrew121410.ess.commands.gm.gma;
 import com.andrew121410.ess.commands.gm.gmc;
 import com.andrew121410.ess.commands.gm.gms;
@@ -10,12 +10,9 @@ import com.andrew121410.ess.commands.hide.unhide;
 import com.andrew121410.ess.commands.home.delhome;
 import com.andrew121410.ess.commands.home.home;
 import com.andrew121410.ess.commands.home.sethome;
-import com.andrew121410.ess.commands.spawn;
 import com.andrew121410.ess.commands.tpa.tpa;
 import com.andrew121410.ess.commands.tpa.tpaccept;
 import com.andrew121410.ess.commands.tpa.tpdeny;
-import com.andrew121410.ess.commands.tps;
-import com.andrew121410.ess.commands.version;
 import com.andrew121410.ess.commands.warp.delwarp;
 import com.andrew121410.ess.commands.warp.setwarp;
 import com.andrew121410.ess.commands.warp.warp;
@@ -63,8 +60,8 @@ public class Main implements ModInitializer {
         this.setListMap = new SetListMap();
 
         this.homeManager = new HomeManager(this);
-
         this.warpManager = new WarpManager(this);
+
         this.warpManager.load();
 
         this.playerInitializer = new PlayerInitializer(this);
@@ -109,6 +106,8 @@ public class Main implements ModInitializer {
         CommandRegistry.INSTANCE.register(false, new warp(this)::register);
         CommandRegistry.INSTANCE.register(false, new setwarp(this)::register);
         CommandRegistry.INSTANCE.register(false, new delwarp(this)::register);
+
+        CommandRegistry.INSTANCE.register(false, new echest(this)::register);
     }
 
     public SetListMap getSetListMap() {
