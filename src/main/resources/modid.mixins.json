@@ -1,17 +1,17 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.andrew121410.ess.mixin",
+  "package": "com.andrew121410.mc.essfabric.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "MixinMinecraftServer",
+    "MixinPlayerInventory",
     "MixinPlayerManger",
     "MixinServerLoginNetworkHandler",
     "MixinServerPlayNetworkHandler",
     "OnPlayerDeathEvent",
     "OnPlayerTeleportEvent",
-    "OnPlayerTeleportEventv2",
-    "MixinItemEntity"
+    "OnPlayerTeleportEventv2"
   ],
   "client": [
   ],
