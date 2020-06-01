@@ -5,10 +5,10 @@ import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.CCUtils.storage.easy.EasySQL;
 import com.andrew121410.CCUtils.storage.easy.SQLDataStore;
 import com.andrew121410.mc.essfabric.Main;
+import com.andrew121410.mc.lackAPI.player.LackDimension;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
 import com.andrew121410.mc.lackAPI.player.Location;
 import com.google.common.collect.Multimap;
-import net.minecraft.world.dimension.DimensionType;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -64,7 +64,7 @@ public class HomeManager {
         sqlDataStore.getMap().put("Z", String.valueOf(location.getVector3().getZ()));
         sqlDataStore.getMap().put("YAW", String.valueOf(location.getYaw()));
         sqlDataStore.getMap().put("PITCH", String.valueOf(location.getPitch()));
-        sqlDataStore.getMap().put("World", String.valueOf(location.getWorld().getDimension().getType().getRawId()));
+        sqlDataStore.getMap().put("World", String.valueOf(LackDimension.toRawID(location.getWorld().getDimension())));
         try {
             easySQL.save(sqlDataStore);
         } catch (SQLException e) {
@@ -92,7 +92,7 @@ public class HomeManager {
         String PITCH = sqlDataStore.getMap().get("PITCH");
         String World = sqlDataStore.getMap().get("World");
 
-        Location location = new Location(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z), Float.parseFloat(YAW), Float.parseFloat(PITCH), player.getPlayerEntity().getServer().getWorld(DimensionType.byRawId(Integer.parseInt(World))));
+        Location location = new Location(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z), Float.parseFloat(YAW), Float.parseFloat(PITCH), player.getPlayerEntity().getServer().getWorld(LackDimension.byRawID(Integer.parseInt(World))));
         this.homesMap.get(player.getUUID()).put(HomeName, location);
     }
 }

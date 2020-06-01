@@ -2,6 +2,7 @@ package com.andrew121410.mc.essfabric.mixin;
 
 import net.minecraft.SharedConstants;
 import net.minecraft.client.options.ChatVisibility;
+import net.minecraft.network.MessageType;
 import net.minecraft.network.NetworkThreadUtils;
 import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ServerPlayPacketListener;
@@ -12,6 +13,7 @@ import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Util;
 import org.apache.commons.lang3.StringUtils;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -50,11 +52,10 @@ public abstract class MixinServerPlayNetworkHandler implements ServerPlayPacketL
     public void onGameMessage(ChatMessageC2SPacket packet) {
         NetworkThreadUtils.forceMainThread(packet, this, this.player.getServerWorld());
         if (this.player.getClientChatVisibility() == ChatVisibility.HIDDEN) {
-            this.sendPacket(new GameMessageS2CPacket((new TranslatableText("chat.cannotSend")).formatted(Formatting.RED)));
+            this.sendPacket(new GameMessageS2CPacket((new TranslatableText("chat.cannotSend")).formatted(Formatting.RED), MessageType.SYSTEM, Util.field_25140));
         } else {
             this.player.updateLastActionTime();
-            String string = packet.getChatMessage();
-            string = StringUtils.normalizeSpace(string);
+            String string = StringUtils.normalizeSpace(packet.getChatMessage());
 
             for (int i = 0; i < string.length(); ++i) {
                 if (!SharedConstants.isValidChar(string.charAt(i))) {
@@ -97,13 +98,12 @@ public abstract class MixinServerPlayNetworkHandler implements ServerPlayPacketL
                     LiteralText doneText = new LiteralText("");
                     for (Text text : textList) doneText.append(text);
                     TranslatableText translatableText = new TranslatableText("chat.type.text", new Object[]{this.player.getDisplayName(), doneText});
-                    this.server.getPlayerManager().broadcastChatMessage(translatableText, false);
+                    this.server.getPlayerManager().broadcastChatMessage(translatableText, MessageType.CHAT, this.player.getUuid());
                     //Andrew done
                 } else {
                     Text text = new TranslatableText("chat.type.text", new Object[]{this.player.getDisplayName(), string});
-                    this.server.getPlayerManager().broadcastChatMessage(text, false);
+                    this.server.getPlayerManager().broadcastChatMessage(text, MessageType.CHAT, this.player.getUuid());
                 }
-
             }
 
             this.messageCooldown += 20;

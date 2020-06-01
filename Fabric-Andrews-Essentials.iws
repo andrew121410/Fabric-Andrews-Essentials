@@ -2,11 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="153868eb-71bf-4b63-89da-0f7e517f71a5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/launch.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/loom-cache/launch.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/loom-cache/log4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/loom-cache/log4j.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/commands/BottleCMD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/lackAPI/player/LackDimension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fabric-Andrews-Essentials.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Fabric-Andrews-Essentials.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/commands/SpawnCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/commands/SpawnCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/commands/utils/GetRelativeCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/commands/utils/GetRelativeCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/commands/utils/XyzdxdydzCMD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/commands/utils/XyzdxdydzCMD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/managers/HomeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/managers/HomeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/managers/WarpManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/managers/WarpManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/mixin/MixinServerPlayNetworkHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/mixin/MixinServerPlayNetworkHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/utils/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/essfabric/utils/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/lackAPI/LackAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/lackAPI/LackAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/lackAPI/player/LackPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/lackAPI/player/LackPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/lackAPI/player/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andrew121410/mc/lackAPI/player/Location.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +166,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/.gradle/caches/fabric-loom/20w22a-mapped-net.fabricmc.yarn-20w22a+build.5-v2/minecraft-20w22a-mapped-net.fabricmc.yarn-20w22a+build.5-v2-sources.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -240,6 +255,25 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="Fabric-Andrews-Essentials [genSources]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="genSources" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -267,6 +301,7 @@
       <item itemvalue="Application.Minecraft Client" />
       <item itemvalue="Application.Minecraft Server" />
       <item itemvalue="Gradle.Fabric-Andrews-Essentials [build]" />
+      <item itemvalue="Gradle.Fabric-Andrews-Essentials [genSources]" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -391,7 +426,23 @@
       <workItem from="1588620198465" duration="12000" />
       <workItem from="1588623992364" duration="8000" />
       <workItem from="1589335154683" duration="139000" />
-      <workItem from="1589494389600" duration="185000" />
+      <workItem from="1589494389600" duration="302000" />
+      <workItem from="1589494706311" duration="27000" />
+      <workItem from="1589494776499" duration="802000" />
+      <workItem from="1589495586783" duration="483000" />
+      <workItem from="1589496169284" duration="5000" />
+      <workItem from="1589496179010" duration="732000" />
+      <workItem from="1589501093547" duration="41000" />
+      <workItem from="1589501137819" duration="140000" />
+      <workItem from="1589501280634" duration="793000" />
+      <workItem from="1589502419386" duration="146000" />
+      <workItem from="1589691160682" duration="2163000" />
+      <workItem from="1590010171827" duration="1603000" />
+      <workItem from="1590011821823" duration="1773000" />
+      <workItem from="1590118571193" duration="236000" />
+      <workItem from="1590773519933" duration="289000" />
+      <workItem from="1590777875909" duration="892000" />
+      <workItem from="1590979277593" duration="948000" />
     </task>
     <task id="LOCAL-00001" summary="Update.">
       <created>1582335358059</created>
@@ -554,7 +605,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587090603639</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fix .gitignore">
+      <created>1589494641363</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1589494641363</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,14 +644,15 @@
     <MESSAGE value="Fix /sethome" />
     <MESSAGE value="Add /echest." />
     <MESSAGE value="Hopefully fixed warps." />
-    <option name="LAST_COMMIT_MESSAGE" value="Hopefully fixed warps." />
+    <MESSAGE value="Fix .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix .gitignore" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588319902201">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589494857633">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588319902201" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589494857633" />
     <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1588525281350">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -610,30 +669,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587861544352" />
-    <state x="234" y="0" key="CommitChangelistDialog2" timestamp="1587090597105">
+    <state x="234" y="0" key="CommitChangelistDialog2" timestamp="1589494637463">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="234" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587090597105" />
-    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1584990721729">
+    <state x="234" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589494637463" />
+    <state x="549" y="153" width="678" height="517" key="FileChooserDialogImpl" timestamp="1590979827493">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584990721729" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1588562977090">
+    <state x="549" y="153" width="678" height="517" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590979827493" />
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1590980091107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588562977090" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1588562977090">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590980091107" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1590980091106">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588562977090" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1588562977090">
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590980091106" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1590980091106">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588562977090" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1588562977090">
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590980091106" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1590980091107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588562977090" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590980091107" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1588538507156">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -658,10 +717,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="185" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588522663256" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1587090605889">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1589494642604">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587090605889" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589494642604" />
     <state x="470" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586411842283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -678,9 +737,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585366523516" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1588623995804">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1590979803061">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1588623995804" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1590979803061" />
   </component>
 </project>

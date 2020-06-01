@@ -6,6 +6,7 @@ import com.andrew121410.CCUtils.storage.easy.EasySQL;
 import com.andrew121410.CCUtils.storage.easy.SQLDataStore;
 import com.andrew121410.mc.essfabric.Main;
 import com.andrew121410.mc.essfabric.objects.WarpObject;
+import com.andrew121410.mc.lackAPI.player.LackDimension;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
 import com.andrew121410.mc.lackAPI.player.Location;
 import com.google.common.collect.Multimap;
@@ -80,7 +81,7 @@ public class WarpManager {
     private SQLDataStore toSQLDataStore(WarpObject warpObject) {
         SQLDataStore sqlDataStore = new SQLDataStore();
         Location location = warpObject.getLocation();
-        String worldID = String.valueOf(location.getWorld().getDimension().getType().getRawId());
+        String worldID = String.valueOf(LackDimension.toRawID(location.getWorld().getDimension()));
         sqlDataStore.getMap().put("Name", warpObject.getName().toLowerCase());
         sqlDataStore.getMap().put("WORLD", worldID);
         sqlDataStore.getMap().put("X", String.valueOf(location.getVector3().getX()));

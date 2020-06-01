@@ -51,7 +51,7 @@ public class XyzdxdydzCMD {
         String done = "[x=" + x + ",y=" + y + ",z=" + z + ",dx=" + dx + ",dy=" + dy + ",dz=" + dz + "]";
         lackPlayer.sendRawMessage(done);
         Text text = new LiteralText("").append(TextFormat.stringToFormattedText("&6Click me to copy.")).styled(it -> it.withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, done)));
-        player.sendMessage(text, MessageType.CHAT);
+        player.sendMessage(text, MessageType.CHAT, lackPlayer.getUUID());
         return 1;
     }
 }

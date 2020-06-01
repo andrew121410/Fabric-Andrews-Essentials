@@ -51,7 +51,7 @@ public class GetRelativeCMD {
 
         String format = "~" + vector32.getX() + " ~" + vector32.getY() + " ~" + vector32.getZ();
         Text text = new LiteralText("").append(TextFormat.stringToFormattedText("&6Click me to copy.")).styled(it -> it.withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, format)));
-        player.sendMessage(text, MessageType.CHAT);
+        player.sendMessage(text, MessageType.CHAT, lackPlayer.getUUID());
         return 1;
     }
 }

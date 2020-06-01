@@ -18,12 +18,12 @@ public class LackPlayer {
 
     public void sendRawMessage(String msg) {
         for (String part : msg.split("\n")) {
-            this.playerEntity.sendMessage(new LiteralText(part), MessageType.CHAT);
+            this.playerEntity.sendMessage(new LiteralText(part), MessageType.CHAT, this.getUUID());
         }
     }
 
     public void sendColorMessage(String msg) {
-        this.playerEntity.sendMessage(TextFormat.stringToFormattedText(msg), MessageType.CHAT);
+        this.playerEntity.sendMessage(TextFormat.stringToFormattedText(msg), MessageType.CHAT, this.getUUID());
     }
 
     public void teleport(Location location) {

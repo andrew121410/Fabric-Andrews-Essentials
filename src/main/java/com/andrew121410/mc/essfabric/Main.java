@@ -107,6 +107,8 @@ public class Main implements ModInitializer {
 
         CommandRegistry.INSTANCE.register(false, new GetRelativeCMD(this)::register);
         CommandRegistry.INSTANCE.register(false, new XyzdxdydzCMD(this)::register);
+
+        CommandRegistry.INSTANCE.register(false, new BottleCMD(this)::register);
     }
 
     public SetListMap getSetListMap() {
