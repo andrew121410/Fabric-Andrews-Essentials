@@ -30,7 +30,7 @@ public class SpawnCMD {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        ServerWorld world = this.main.getMinecraftDedicatedServer().getWorld(World.field_25179);
+        ServerWorld world = this.main.getMinecraftDedicatedServer().getWorld(World.OVERWORLD);
         lackPlayer.teleport(new Location(Double.parseDouble(String.valueOf(world.getLevelProperties().getSpawnX())), Double.parseDouble(String.valueOf(world.getLevelProperties().getSpawnY())), Double.parseDouble(String.valueOf(world.getLevelProperties().getSpawnZ())), 0, 0, world));
         lackPlayer.sendColorMessage("&6Teleporting...");
         return 1;

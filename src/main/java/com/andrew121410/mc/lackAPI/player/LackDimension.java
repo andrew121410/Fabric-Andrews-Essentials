@@ -10,11 +10,11 @@ public class LackDimension {
     public static RegistryKey<World> byRawID(int id) {
         switch (id) {
             case 1:
-                return World.field_25181;
+                return World.END;
             case 0:
-                return World.field_25179;
+                return World.OVERWORLD;
             case -1:
-                return World.field_25180;
+                return World.NETHER;
         }
         return null;
     }

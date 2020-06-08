@@ -52,7 +52,7 @@ public abstract class MixinServerPlayNetworkHandler implements ServerPlayPacketL
     public void onGameMessage(ChatMessageC2SPacket packet) {
         NetworkThreadUtils.forceMainThread(packet, this, this.player.getServerWorld());
         if (this.player.getClientChatVisibility() == ChatVisibility.HIDDEN) {
-            this.sendPacket(new GameMessageS2CPacket((new TranslatableText("chat.cannotSend")).formatted(Formatting.RED), MessageType.SYSTEM, Util.field_25140));
+            this.sendPacket(new GameMessageS2CPacket((new TranslatableText("chat.cannotSend")).formatted(Formatting.RED), MessageType.SYSTEM, Util.NIL_UUID));
         } else {
             this.player.updateLastActionTime();
             String string = StringUtils.normalizeSpace(packet.getChatMessage());

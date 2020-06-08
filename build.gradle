@@ -23,6 +23,7 @@ dependencies {
     include(modImplementation('com.github.andrew121410:CCUtilsJava:cc90b7f933'))
     include(modCompile(group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'))
     implementation 'org.jetbrains:annotations:15.0'
+
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
 }
@@ -82,4 +83,5 @@ publishing {
 
 repositories {
     maven { url 'https://jitpack.io' }
+    jcenter()
 }
