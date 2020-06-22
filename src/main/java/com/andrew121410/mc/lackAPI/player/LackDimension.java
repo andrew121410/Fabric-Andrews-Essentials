@@ -1,5 +1,6 @@
 package com.andrew121410.mc.lackAPI.player;
 
+import com.andrew121410.mc.essfabric.mixin.AccessorDimensionType;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
@@ -21,11 +22,13 @@ public class LackDimension {
 
     @Deprecated
     public static int toRawID(DimensionType dimensionType) {
-        if (dimensionType.isEnd()) {
+        AccessorDimensionType customDim = (AccessorDimensionType) dimensionType;
+
+        if (dimensionType == customDim.getEnd()) {
             return 1;
-        } else if (dimensionType.isOverworld()) {
+        } else if (dimensionType == customDim.getOverworld()) {
             return 0;
-        } else if (dimensionType.isNether()) {
+        } else if (dimensionType == customDim.getNether()) {
             return -1;
         }
         return 0;

@@ -1,14 +1,12 @@
 package com.andrew121410.mc.essfabric.commands.home;
 
 import com.andrew121410.mc.essfabric.Main;
-import com.andrew121410.mc.essfabric.utils.API;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
 import com.andrew121410.mc.lackAPI.player.Location;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -49,8 +47,8 @@ public class SethomeCMD {
         }
 
         Map<String, Location> homes = this.homesMap.get(lackPlayer.getUUID());
-        if (homes.size() == API.HOME_LIMIT && !lackPlayer.isOp() && integer == null) {
-            lackPlayer.sendColorMessage("&eYou can only have " + API.HOME_LIMIT + " homes.");
+        if (homes.size() == this.main.getModConfig().getHomeLimit() && !lackPlayer.isOp() && integer == null) {
+            lackPlayer.sendColorMessage("&eYou can only have " + this.main.getModConfig().getHomeLimit() + " homes.");
             lackPlayer.sendColorMessage("&cIf you want to override the home please delete it and try again.");
             return 1;
         } else if (integer != null && homes.size() == integer && !lackPlayer.isOp()) {

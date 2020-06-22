@@ -18,9 +18,7 @@ import com.andrew121410.mc.essfabric.commands.warp.SetwarpCMD;
 import com.andrew121410.mc.essfabric.commands.warp.WarpCMD;
 import com.andrew121410.mc.essfabric.managers.HomeManager;
 import com.andrew121410.mc.essfabric.managers.WarpManager;
-import com.andrew121410.mc.essfabric.utils.PlayerInitializer;
-import com.andrew121410.mc.essfabric.utils.SetListMap;
-import com.andrew121410.mc.essfabric.utils.TpsHelper;
+import com.andrew121410.mc.essfabric.utils.*;
 import com.andrew121410.mc.lackAPI.LackAPI;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
@@ -33,6 +31,10 @@ import net.minecraft.server.dedicated.MinecraftDedicatedServer;
 import java.io.File;
 
 public class Main implements ModInitializer {
+
+    public static String VERSION = "1.7.8";
+
+    private ModConfig modConfig;
 
     private static Main main;
     private MinecraftDedicatedServer minecraftDedicatedServer;
@@ -49,13 +51,16 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         main = this;
-        this.minecraftDedicatedServer = (MinecraftDedicatedServer) FabricLoader.getInstance().getGameInstance();
-        this.modConfigFolder = new File("Andrews-Config/");
 
+        this.modConfigFolder = new File("Andrews-Config/");
         if (!modConfigFolder.isDirectory()) {
             this.modConfigFolder.mkdir();
         }
 
+        //Load config
+        this.modConfig = ConfigUtils.loadConfig(this.modConfigFolder);
+
+        this.minecraftDedicatedServer = (MinecraftDedicatedServer) FabricLoader.getInstance().getGameInstance();
         System.out.println("Loading Andrews Essentials");
         this.setListMap = new SetListMap();
 
@@ -141,5 +146,9 @@ public class Main implements ModInitializer {
 
     public HomeManager getHomeManager() {
         return homeManager;
+    }
+
+    public ModConfig getModConfig() {
+        return modConfig;
     }
 }

@@ -1,7 +1,6 @@
 package com.andrew121410.mc.essfabric.commands;
 
 import com.andrew121410.mc.essfabric.Main;
-import com.andrew121410.mc.essfabric.utils.API;
 import com.andrew121410.mc.lackAPI.LackAPI;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
 import com.mojang.brigadier.CommandDispatcher;
@@ -28,7 +27,7 @@ public class VersionCMD {
         ServerPlayerEntity player = ctx.getSource().getPlayer();
         LackPlayer lackPlayer = new LackPlayer(player);
 
-        lackPlayer.sendColorMessage("&6This server is running Andrew's custom server software V: " + API.VERSION + " with Andrew's lack API V: " + LackAPI.VERSION);
+        lackPlayer.sendColorMessage("&6This server is running Andrew's custom server software V: " + Main.VERSION + " with Andrew's lack API V: " + LackAPI.VERSION);
         return 1;
     }
 }

@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.2.7-SNAPSHOT'
+    id 'fabric-loom' version '0.4-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -19,13 +19,14 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    include(modCompile(group: 'org.xerial', name: 'sqlite-jdbc', version: '3.7.2'))
-    include(modImplementation('com.github.andrew121410:CCUtilsJava:cc90b7f933'))
-    include(modCompile(group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'))
-    implementation 'org.jetbrains:annotations:15.0'
+    include(
+            implementation(group: "org.yaml", name: "snakeyaml", version: "1.21"),
 
-    // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-    // You may need to force-disable transitiveness on them.
+            modImplementation(group: 'org.xerial', name: 'sqlite-jdbc', version: '3.7.2'),
+            modImplementation('com.github.andrew121410:CCUtilsJava:cc90b7f933'),
+    )
+
+    implementation 'org.jetbrains:annotations:15.0'
 }
 
 processResources {
@@ -82,6 +83,7 @@ publishing {
 }
 
 repositories {
+    mavenCentral()
     maven { url 'https://jitpack.io' }
     jcenter()
 }

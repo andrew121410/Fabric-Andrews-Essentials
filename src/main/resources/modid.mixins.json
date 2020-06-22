@@ -4,6 +4,7 @@
   "package": "com.andrew121410.mc.essfabric.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AccessorDimensionType",
     "MixinMinecraftServer",
     "MixinPlayerInventory",
     "MixinPlayerManger",
