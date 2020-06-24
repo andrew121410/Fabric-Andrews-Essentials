@@ -1,8 +1,10 @@
-package com.andrew121410.mc.lackAPI.player;
+package com.andrew121410.mc.lackAPI.world;
 
 import com.andrew121410.CCUtils.storage.easy.SQLDataStore;
+import com.andrew121410.mc.essfabric.Main;
 import com.andrew121410.mc.lackAPI.math.Vector3;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.dedicated.MinecraftDedicatedServer;
 import net.minecraft.world.World;
 
 import java.util.Objects;
@@ -24,8 +26,7 @@ public class Location extends Vector3 {
         return new Location(playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), playerEntity.yaw, playerEntity.pitch, playerEntity.getEntityWorld());
     }
 
-    //    @TODO Fix this dumb shit later when fabric decides it wants to actually fix a problem.
-    public static Location from(SQLDataStore sqlDataStore, LackPlayer lackPlayer) {
+    public static Location from(SQLDataStore sqlDataStore) {
         String X = sqlDataStore.getMap().get("X");
         String Y = sqlDataStore.getMap().get("Y");
         String Z = sqlDataStore.getMap().get("Z");
@@ -33,7 +34,8 @@ public class Location extends Vector3 {
         String PITCH = sqlDataStore.getMap().get("PITCH");
         String WORLD = sqlDataStore.getMap().get("WORLD");
 
-        return new Location(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z), Float.parseFloat(YAW), Float.parseFloat(PITCH), lackPlayer.getPlayerEntity().getServer().getWorld(LackDimension.byRawID(Integer.parseInt(WORLD))));
+        MinecraftDedicatedServer minecraftDedicatedServer = Main.getInstance().getMinecraftDedicatedServer();
+        return new Location(Double.parseDouble(X), Double.parseDouble(Y), Double.parseDouble(Z), Float.parseFloat(YAW), Float.parseFloat(PITCH), minecraftDedicatedServer.getWorld(LackDimension.byRawID(Integer.parseInt(WORLD))));
     }
 
     public Vector3 getVector3() {

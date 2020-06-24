@@ -23,7 +23,7 @@ public class XyzdxdydzCMD {
         this.main = main;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("xyzdxdydz")
                 .then(CommandManager.argument("x", StringArgumentType.string()))
                 .then(CommandManager.argument("y", StringArgumentType.string()))

@@ -18,7 +18,7 @@ public class VersionCMD {
         this.main = main;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("version")
                 .executes(this::go));
     }

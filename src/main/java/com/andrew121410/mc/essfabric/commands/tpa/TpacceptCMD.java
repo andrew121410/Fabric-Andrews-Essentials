@@ -25,7 +25,7 @@ public class TpacceptCMD {
         this.tpaMap = this.main.getSetListMap().getTpaMap();
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("tpaccept")
                 .executes(this::go));
     }

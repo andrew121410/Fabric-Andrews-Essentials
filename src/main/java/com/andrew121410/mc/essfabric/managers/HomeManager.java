@@ -5,9 +5,9 @@ import com.andrew121410.CCUtils.storage.SQLite;
 import com.andrew121410.CCUtils.storage.easy.EasySQL;
 import com.andrew121410.CCUtils.storage.easy.SQLDataStore;
 import com.andrew121410.mc.essfabric.Main;
-import com.andrew121410.mc.lackAPI.player.LackDimension;
+import com.andrew121410.mc.lackAPI.world.LackDimension;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 import com.google.common.collect.Multimap;
 
 import java.sql.SQLException;

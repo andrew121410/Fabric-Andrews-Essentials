@@ -18,7 +18,7 @@ public class DelhomeCMD {
         this.main = main;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("delhome")
                 .then(CommandManager.argument("home", StringArgumentType.string())
                         .suggests(new HomeArgumentType(this.main)::suggest)

@@ -18,7 +18,7 @@ public class GmaCMD {
         this.main = plugin;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("gma")
                 .requires(it -> it.hasPermissionLevel(2))
                 .executes(this::go));

@@ -73,9 +73,9 @@ public abstract class MixinServerPlayNetworkHandler implements ServerPlayPacketL
                 //Honestly retard but hey it works. :wink
                 for (String arg : args) {
                     if (!literalText.getSiblings().isEmpty()) {
-                        literalText.append(" ");
+                        literalText.append(new LiteralText(" "));
                     }
-                    literalText.append(arg);
+                    literalText.append(new LiteralText(arg));
                 }
 
                 List<Text> textList = literalText.getSiblings();

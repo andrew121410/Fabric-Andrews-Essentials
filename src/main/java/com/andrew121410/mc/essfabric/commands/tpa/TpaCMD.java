@@ -24,7 +24,7 @@ public class TpaCMD {
         this.tpaMap = this.main.getSetListMap().getTpaMap();
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("tpa")
                 .then(CommandManager.argument("player", EntityArgumentType.player())
                         .executes(this::go))

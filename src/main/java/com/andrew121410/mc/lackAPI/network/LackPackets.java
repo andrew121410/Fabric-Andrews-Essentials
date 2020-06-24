@@ -1,5 +1,6 @@
-package com.andrew121410.mc.lackAPI.player;
+package com.andrew121410.mc.lackAPI.network;
 
+import com.andrew121410.mc.lackAPI.player.LackPlayer;
 import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 

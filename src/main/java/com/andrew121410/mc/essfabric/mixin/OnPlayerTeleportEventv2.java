@@ -1,7 +1,7 @@
 package com.andrew121410.mc.essfabric.mixin;
 
 import com.andrew121410.mc.essfabric.Main;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
 import net.minecraft.server.command.ServerCommandSource;
@@ -23,8 +23,8 @@ public class OnPlayerTeleportEventv2 {
     private static void teleport(ServerCommandSource source, Entity target, ServerWorld world, double x, double y, double z, Set<PlayerPositionLookS2CPacket.Flag> movementFlags, float yaw, float pitch, @Coerce Object facingLocation, CallbackInfo ci) {
         if (target instanceof ServerPlayerEntity) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) target;
-            Main.getMain().getSetListMap().getBackMap().remove(serverPlayerEntity.getUuid());
-            Main.getMain().getSetListMap().getBackMap().put(serverPlayerEntity.getUuid(), Location.from(serverPlayerEntity));
+            Main.getInstance().getSetListMap().getBackMap().remove(serverPlayerEntity.getUuid());
+            Main.getInstance().getSetListMap().getBackMap().put(serverPlayerEntity.getUuid(), Location.from(serverPlayerEntity));
         }
     }
 }

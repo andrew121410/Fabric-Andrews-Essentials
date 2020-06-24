@@ -5,8 +5,6 @@ import com.andrew121410.mc.lackAPI.player.LackPlayer;
 
 public class PlayerInitializer {
 
-    public static boolean isWarpsInitialize = false;
-
     private Main main;
 
     public PlayerInitializer(Main main) {
@@ -14,11 +12,6 @@ public class PlayerInitializer {
     }
 
     public void load(LackPlayer lackPlayer) {
-        if (!isWarpsInitialize) {
-            isWarpsInitialize = true;
-            this.main.getWarpManager().load(lackPlayer);
-        }
-
         this.main.getHomeManager().load(lackPlayer);
     }
 

@@ -23,7 +23,7 @@ public class DelwarpCMD {
         this.warpMap = this.main.getSetListMap().getWarpsMap();
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("delwarp")
                 .requires(it -> it.hasPermissionLevel(2))
                 .then(CommandManager.argument("warp", StringArgumentType.string())

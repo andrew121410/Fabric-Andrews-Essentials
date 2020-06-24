@@ -1,6 +1,8 @@
 package com.andrew121410.mc.lackAPI.player;
 
+import com.andrew121410.mc.lackAPI.network.LackPackets;
 import com.andrew121410.mc.lackAPI.utils.TextFormat;
+import com.andrew121410.mc.lackAPI.world.Location;
 import net.minecraft.network.MessageType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -28,6 +30,10 @@ public class LackPlayer {
 
     public void teleport(Location location) {
         playerEntity.teleport((ServerWorld) location.getWorld(), location.getX(), location.getY(), location.getZ(), location.getYaw(), location.getPitch());
+    }
+
+    public void kick(String reason) {
+        this.playerEntity.networkHandler.disconnect(TextFormat.stringToFormattedText(reason));
     }
 
     public Location getLocation() {

@@ -1,6 +1,6 @@
 package com.andrew121410.mc.essfabric.objects;
 
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 import org.jetbrains.annotations.NotNull;
 
 public class WarpObject {

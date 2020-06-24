@@ -1,4 +1,4 @@
-package com.andrew121410.mc.lackAPI.player;
+package com.andrew121410.mc.lackAPI.world;
 
 import com.andrew121410.mc.essfabric.mixin.AccessorDimensionType;
 import net.minecraft.util.registry.RegistryKey;

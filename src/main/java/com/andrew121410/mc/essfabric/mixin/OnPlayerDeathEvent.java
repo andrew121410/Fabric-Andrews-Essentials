@@ -1,7 +1,7 @@
 package com.andrew121410.mc.essfabric.mixin;
 
 import com.andrew121410.mc.essfabric.Main;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -16,7 +16,7 @@ public class OnPlayerDeathEvent {
     @Inject(method = "onDeath", at = @At(value = "HEAD"))
     public void onDeath(final DamageSource source, CallbackInfo callbackInfo) {
         PlayerEntity playerEntity = (PlayerEntity) (Object) this;
-        Main.getMain().getSetListMap().getBackMap().remove(playerEntity.getUuid());
-        Main.getMain().getSetListMap().getBackMap().put(playerEntity.getUuid(), Location.from(playerEntity));
+        Main.getInstance().getSetListMap().getBackMap().remove(playerEntity.getUuid());
+        Main.getInstance().getSetListMap().getBackMap().put(playerEntity.getUuid(), Location.from(playerEntity));
     }
 }

@@ -24,7 +24,7 @@ public class GetRelativeCMD {
         this.main = main;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("getRelative")
                 .then(CommandManager.argument("x", StringArgumentType.string()))
                 .then(CommandManager.argument("y", StringArgumentType.string()))

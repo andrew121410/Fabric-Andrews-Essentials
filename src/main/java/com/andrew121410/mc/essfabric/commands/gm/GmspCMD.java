@@ -18,7 +18,7 @@ public class GmspCMD {
         this.main = plugin;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("gmsp")
                 .requires(it -> it.hasPermissionLevel(2))
                 .executes(this::go));

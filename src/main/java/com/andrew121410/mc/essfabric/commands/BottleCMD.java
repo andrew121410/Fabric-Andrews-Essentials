@@ -18,7 +18,7 @@ public class BottleCMD {
         this.main = main;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("bottle")
                 .then(CommandManager.literal("points")
                         .then(CommandManager.argument("int", IntegerArgumentType.integer())

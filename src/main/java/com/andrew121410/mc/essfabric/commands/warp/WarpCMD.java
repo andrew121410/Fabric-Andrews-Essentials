@@ -23,7 +23,7 @@ public class WarpCMD {
         this.warpMap = this.main.getSetListMap().getWarpsMap();
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("warp")
                 .then(CommandManager.argument("warp", StringArgumentType.string())
                         .suggests(new WarpArgumentType(this.main)::suggest)

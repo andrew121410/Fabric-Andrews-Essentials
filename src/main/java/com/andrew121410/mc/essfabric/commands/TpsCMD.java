@@ -17,7 +17,7 @@ public class TpsCMD {
         this.main = plugin;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("tps")
                 .executes(this::go));
     }

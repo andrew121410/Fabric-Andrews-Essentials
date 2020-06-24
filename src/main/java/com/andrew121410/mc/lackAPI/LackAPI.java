@@ -10,5 +10,5 @@ public class LackAPI {
         ServerTickCallback.EVENT.register(SimpleScheduler::onTick);
     }
 
-    public static String VERSION = "0.5.3";
+    public static String VERSION = "0.5.4";
 }

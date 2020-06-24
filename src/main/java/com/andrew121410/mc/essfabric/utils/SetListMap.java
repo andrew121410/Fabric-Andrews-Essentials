@@ -2,7 +2,7 @@ package com.andrew121410.mc.essfabric.utils;
 
 import com.andrew121410.mc.essfabric.objects.WarpObject;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 
 import java.util.HashMap;
 import java.util.Map;

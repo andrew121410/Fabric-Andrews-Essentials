@@ -6,9 +6,8 @@ import com.andrew121410.CCUtils.storage.easy.EasySQL;
 import com.andrew121410.CCUtils.storage.easy.SQLDataStore;
 import com.andrew121410.mc.essfabric.Main;
 import com.andrew121410.mc.essfabric.objects.WarpObject;
-import com.andrew121410.mc.lackAPI.player.LackDimension;
-import com.andrew121410.mc.lackAPI.player.LackPlayer;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.LackDimension;
+import com.andrew121410.mc.lackAPI.world.Location;
 import com.google.common.collect.Multimap;
 
 import java.sql.SQLException;
@@ -46,11 +45,11 @@ public class WarpManager {
         this.easySQL.create(columns, false);
     }
 
-    public void load(LackPlayer lackPlayer) {
+    public void load() {
         try {
             Multimap<String, SQLDataStore> everythingMap = easySQL.getEverything();
             for (Map.Entry<String, SQLDataStore> entry : everythingMap.entries())
-                this.warpsMap.put(entry.getKey(), toWarp(entry.getValue(), lackPlayer));
+                this.warpsMap.put(entry.getKey(), toWarp(entry.getValue()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -72,10 +71,10 @@ public class WarpManager {
         easySQL.delete(toDelete);
     }
 
-    private WarpObject toWarp(SQLDataStore sqlDataStore, LackPlayer lackPlayer) {
+    private WarpObject toWarp(SQLDataStore sqlDataStore) {
         String name = sqlDataStore.getMap().get("Name");
         String owner = sqlDataStore.getMap().get("Owner");
-        return new WarpObject(name, owner, Location.from(sqlDataStore, lackPlayer));
+        return new WarpObject(name, owner, Location.from(sqlDataStore));
     }
 
     private SQLDataStore toSQLDataStore(WarpObject warpObject) {

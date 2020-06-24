@@ -2,7 +2,7 @@ package com.andrew121410.mc.essfabric.commands.home;
 
 import com.andrew121410.mc.essfabric.Main;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.Suggestions;

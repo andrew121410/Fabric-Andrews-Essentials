@@ -21,6 +21,6 @@ public abstract class MixinMinecraftServer {
 
     @Inject(method = "shutdown", at = @At(value = "HEAD"))
     protected void shutdown(CallbackInfo callbackInfo) {
-        Main.getMain().onShutdown();
+        Main.getInstance().onShutdown();
     }
 }

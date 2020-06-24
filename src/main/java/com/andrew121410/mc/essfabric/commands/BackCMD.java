@@ -2,7 +2,7 @@ package com.andrew121410.mc.essfabric.commands;
 
 import com.andrew121410.mc.essfabric.Main;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -25,7 +25,7 @@ public class BackCMD {
         this.backMap = this.main.getSetListMap().getBackMap();
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("back")
                 .executes(this::go));
     }

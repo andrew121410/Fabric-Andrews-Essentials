@@ -2,7 +2,7 @@ package com.andrew121410.mc.essfabric.commands.home;
 
 import com.andrew121410.mc.essfabric.Main;
 import com.andrew121410.mc.lackAPI.player.LackPlayer;
-import com.andrew121410.mc.lackAPI.player.Location;
+import com.andrew121410.mc.lackAPI.world.Location;
 import com.andrew121410.mc.lackAPI.utils.SimpleScheduler;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -27,7 +27,7 @@ public class HomeCMD {
         this.homesMap = this.main.getSetListMap().getHomesMap();
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher) {
+    public void register(CommandDispatcher<ServerCommandSource> commandDispatcher, boolean isDedicated) {
         commandDispatcher.register(CommandManager.literal("home")
                 .then(CommandManager.argument("home", StringArgumentType.string())
                         .suggests(new HomeArgumentType(this.main)::suggest)
