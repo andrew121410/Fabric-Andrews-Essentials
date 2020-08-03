@@ -1,5 +1,6 @@
 package com.andrew121410.mc.essfabric.mixin;
 
+import com.andrew121410.mc.essfabric.Main;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.options.ChatVisibility;
 import net.minecraft.network.MessageType;
@@ -11,6 +12,7 @@ import net.minecraft.network.packet.s2c.play.GameMessageS2CPacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Util;
@@ -94,13 +96,22 @@ public abstract class MixinServerPlayNetworkHandler implements ServerPlayPacketL
                 if (rawLink != null) {
                     HoverEvent hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new LiteralText("Andrew's Clickable Links [CLICK ME]"));
                     ClickEvent linkEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, rawLink);
-                    textList.set(rawLinkID, new LiteralText(rawLink).styled(it -> it.withClickEvent(linkEvent)).styled(it -> it.setHoverEvent(hoverEvent)));
+                    textList.set(rawLinkID, new LiteralText(rawLink).styled(it -> it.withClickEvent(linkEvent)).styled(it -> it.withHoverEvent(hoverEvent)));
                     LiteralText doneText = new LiteralText("");
                     for (Text text : textList) doneText.append(text);
                     TranslatableText translatableText = new TranslatableText("chat.type.text", new Object[]{this.player.getDisplayName(), doneText});
                     this.server.getPlayerManager().broadcastChatMessage(translatableText, MessageType.CHAT, this.player.getUuid());
                     //Andrew done
                 } else {
+
+                    //Name Ping
+                    List<ServerPlayerEntity> playerEntities = Main.getInstance().getMinecraftDedicatedServer().getPlayerManager().getPlayerList();
+                    for (ServerPlayerEntity playerEntity : playerEntities) {
+                        if (string.contains(playerEntity.getName().asString())) {
+                            playerEntity.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 10.0F, 10.0F);
+                        }
+                    }
+
                     Text text = new TranslatableText("chat.type.text", new Object[]{this.player.getDisplayName(), string});
                     this.server.getPlayerManager().broadcastChatMessage(text, MessageType.CHAT, this.player.getUuid());
                 }

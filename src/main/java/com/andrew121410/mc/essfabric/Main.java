@@ -22,8 +22,8 @@ import com.andrew121410.mc.essfabric.utils.*;
 import com.andrew121410.mc.lackAPI.LackAPI;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.event.server.ServerStartCallback;
-import net.fabricmc.fabric.api.event.server.ServerTickCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.Items;
 import net.minecraft.server.dedicated.MinecraftDedicatedServer;
@@ -32,7 +32,7 @@ import java.io.File;
 
 public class Main implements ModInitializer {
 
-    public static String VERSION = "1.7.9.2";
+    public static String VERSION = "1.7.9.4";
     public boolean isReady = false;
 
     private ModConfig modConfig;
@@ -52,7 +52,6 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         instance = this;
-
         System.out.println("Loading Andrews Essentials");
 
         //Make config if not exist.
@@ -75,7 +74,8 @@ public class Main implements ModInitializer {
     }
 
     public void onServerStarted() {
-        ServerStartCallback.EVENT.register(t -> {
+
+        ServerLifecycleEvents.SERVER_STARTED.register(t -> {
             this.minecraftDedicatedServer = (MinecraftDedicatedServer) t;
 
             //Load LackAPI
@@ -88,7 +88,7 @@ public class Main implements ModInitializer {
             this.playerInitializer = new PlayerInitializer(this);
 
             this.tpsHelper = new TpsHelper();
-            ServerTickCallback.EVENT.register(this.tpsHelper::tick);
+            ServerTickEvents.START_SERVER_TICK.register(this.tpsHelper::tick);
 
             FuelRegistry.INSTANCE.add(Items.ROTTEN_FLESH, 100);
 

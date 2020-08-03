@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class TpsHelper {
 
-    private static DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+    private static final DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
 
     private transient long lastPoll = System.nanoTime();
     private final LinkedList<Double> history = new LinkedList<>();

@@ -1,5 +1,6 @@
 .gradle/
 build/
+run/
 Fabric-Andrews-Essentials.iml
 Fabric-Andrews-Essentials.ipr
 Fabric-Andrews-Essentials.iws
