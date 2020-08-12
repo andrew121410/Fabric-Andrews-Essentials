@@ -32,7 +32,7 @@ import java.io.File;
 
 public class Main implements ModInitializer {
 
-    public static String VERSION = "1.7.9.4";
+    public static String VERSION = "1.7.9.6";
     public boolean isReady = false;
 
     private ModConfig modConfig;
